@@ -1,0 +1,78 @@
+{
+  "run": "smoke",
+  "tag": "smoke",
+  "blocks": 2,
+  "batch": 32,
+  "lr": 0.0003,
+  "epochs": 1.0,
+  "evals": [
+    {
+      "acc": 0.5694444444444444,
+      "nll": 1.0696475901966114,
+      "n": 72,
+      "macro_acc": 0.5607807692307692,
+      "step": 45,
+      "loss": 1.0402,
+      "elapsed_min": 2.9
+    },
+    {
+      "acc": 0.5694444444444444,
+      "nll": 1.0762764355227354,
+      "n": 72,
+      "macro_acc": 0.5575730769230769,
+      "step": 90,
+      "loss": 1.0528,
+      "elapsed_min": 6.0
+    }
+  ],
+  "best_dev": {
+    "acc": 0.5694444444444444,
+    "nll": 1.0696475901966114,
+    "n": 72,
+    "by_src": {
+      "ag_news": 1.0,
+      "amazon_multi": 0.0,
+      "bitext": 0.8333,
+      "boolq": 0.0,
+      "civil_comments": 0.8,
+      "clinc": 0.5,
+      "commonsense_qa": 0.6667,
+      "dbpedia": 0.5,
+      "enron_spam": 1.0,
+      "go_emotions": 0.0,
+      "hate_offensive": 0.0,
+      "imdb": 1.0,
+      "mnli": 0.0,
+      "ms_marco": 0.75,
+      "paws": 0.5,
+      "phishing": 0.3636,
+      "qqp": 1.0,
+      "race": 0.6667,
+      "sst2": 0.6667,
+      "support_tickets": 0.0,
+      "tweet_emotion": 1.0,
+      "tweet_hate": 1.0,
+      "tweet_offensive": 1.0,
+      "tweet_sent_multi": 0.0,
+      "yahoo": 1.0,
+      "yelp": 0.3333
+    },
+    "macro_acc": 0.5607807692307692,
+    "step": 45,
+    "loss": 1.0402,
+    "elapsed_min": 2.9
+  },
+  "cal_raw": {
+    "acc": 0.5283018867924528,
+    "nll": 1.02588931172979,
+    "n": 53,
+    "macro_acc": 0.533336
+  },
+  "cal_calibrated": {
+    "acc": 0.5283018867924528,
+    "nll": 1.02588931172979,
+    "n": 53,
+    "macro_acc": 0.533336
+  },
+  "temperatures": {}
+}

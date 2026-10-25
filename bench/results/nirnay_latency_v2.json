@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "timestamp": "2026-10-25 03:05:06",
+    "cpu": "2x Xeon E5-2630 v3 (HP Z840)",
+    "model": "nirnay-bgeb-deep",
+    "model_dir": "D:\\Nirnay\\models\\nirnay-bgeb-deep"
+  },
+  "cold_load_ms": 3899.0,
+  "rss_delta_mb": 610.8,
+  "disk_mb": 526.5,
+  "by_threads": {
+    "8": {
+      "1_questions": {
+        "warm": {
+          "p50_ms": 145.99,
+          "p95_ms": 170.41,
+          "mean_ms": 144.45,
+          "min_ms": 121.6
+        },
+        "cold_schema": {
+          "p50_ms": 190.87,
+          "p95_ms": 206.18,
+          "mean_ms": 187.39,
+          "min_ms": 159.86
+        },
+        "ms_per_question_warm": 145.99
+      },
+      "5_questions": {
+        "warm": {
+          "p50_ms": 194.5,
+          "p95_ms": 208.3,
+          "mean_ms": 192.24,
+          "min_ms": 173.67
+        },
+        "cold_schema": {
+          "p50_ms": 376.11,
+          "p95_ms": 392.52,
+          "mean_ms": 372.1,
+          "min_ms": 337.09
+        },
+        "ms_per_question_warm": 38.9
+      },
+      "10_questions": {
+        "warm": {
+          "p50_ms": 296.61,
+          "p95_ms": 423.71,
+          "mean_ms": 305.88,
+          "min_ms": 232.01
+        },
+        "cold_schema": {
+          "p50_ms": 561.36,
+          "p95_ms": 754.11,
+          "mean_ms": 591.1,
+          "min_ms": 518.61
+        },
+        "ms_per_question_warm": 29.661
+      },
+      "50_questions": {
+        "warm": {
+          "p50_ms": 695.74,
+          "p95_ms": 965.67,
+          "mean_ms": 736.43,
+          "min_ms": 626.7
+        },
+        "cold_schema": {
+          "p50_ms": 1859.6,
+          "p95_ms": 2533.87,
+          "mean_ms": 1990.79,
+          "min_ms": 1766.26
+        },
+        "ms_per_question_warm": 13.915
+      }
+    }
+  },
+  "backend": "torch",
+  "throughput_10q": {
+    "states": 64,
+    "seconds": 12.398,
+    "decisions_per_s": 51.6,
+    "states_per_s": 5.2
+  },
+  "peak_rss_mb": 937.9
+}

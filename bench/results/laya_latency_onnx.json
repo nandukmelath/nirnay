@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "timestamp": "2026-10-24 13:31:38",
+    "device": "cpu",
+    "cpu": "2x Xeon E5-2630 v3 (HP Z840)",
+    "torch": "2.14.1+cpu",
+    "laya": "0.4.14",
+    "threads_tried": [
+      0
+    ]
+  },
+  "models": {
+    "laya": {
+      "cold_load_ms": 11118.1,
+      "rss_after_load_mb": 1760.6,
+      "rss_delta_mb": 1562.9,
+      "by_threads": {
+        "0": {
+          "1_questions": {
+            "p50_ms": 412.81,
+            "p95_ms": 431.66,
+            "mean_ms": 409.05,
+            "min_ms": 375.97,
+            "ms_per_question": 412.81
+          },
+          "5_questions": {
+            "p50_ms": 1852.86,
+            "p95_ms": 1915.27,
+            "mean_ms": 1868.45,
+            "min_ms": 1831.05,
+            "ms_per_question": 370.57
+          },
+          "10_questions": {
+            "p50_ms": 3912.45,
+            "p95_ms": 4015.84,
+            "mean_ms": 3926.02,
+            "min_ms": 3836.04,
+            "ms_per_question": 391.25
+          },
+          "50_questions": {
+            "p50_ms": 20102.99,
+            "p95_ms": 20281.67,
+            "mean_ms": 20111.24,
+            "min_ms": 19879.99,
+            "ms_per_question": 402.06
+          }
+        }
+      },
+      "peak_rss_mb": 5418.8
+    },
+    "laya-multilingual": {
+      "cold_load_ms": 5711.7,
+      "rss_after_load_mb": 891.4,
+      "rss_delta_mb": 554.4,
+      "by_threads": {
+        "0": {
+          "1_questions": {
+            "p50_ms": 158.97,
+            "p95_ms": 170.68,
+            "mean_ms": 160.33,
+            "min_ms": 151.92,
+            "ms_per_question": 158.97
+          },
+          "5_questions": {
+            "p50_ms": 676.52,
+            "p95_ms": 712.8,
+            "mean_ms": 685.98,
+            "min_ms": 664.76,
+            "ms_per_question": 135.3
+          },
+          "10_questions": {
+            "p50_ms": 1388.7,
+            "p95_ms": 1414.69,
+            "mean_ms": 1382.17,
+            "min_ms": 1345.46,
+            "ms_per_question": 138.87
+          },
+          "50_questions": {
+            "p50_ms": 7112.49,
+            "p95_ms": 7423.15,
+            "mean_ms": 7169.82,
+            "min_ms": 7020.63,
+            "ms_per_question": 142.25
+          }
+        }
+      },
+      "peak_rss_mb": 2905.9
+    }
+  }
+}

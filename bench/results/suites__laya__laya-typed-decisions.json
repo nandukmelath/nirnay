@@ -1,0 +1,177 @@
+{
+  "model": "laya:laya-typed-decisions",
+  "label": "laya-typed-decisions",
+  "threads": 8,
+  "load_s": 11.9,
+  "timestamp": "2026-10-24 12:52:41",
+  "suites": {
+    "jev.ag_news": {
+      "n": 400,
+      "accuracy": 0.9525,
+      "macro_f1": 0.9468,
+      "ece": 0.155,
+      "brier": 0.1137,
+      "nll": 0.2801,
+      "ms_per_case": 566.16,
+      "meta": {
+        "note": "Jev 0.910",
+        "jev": "ag_news",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.emotion": {
+      "n": 400,
+      "accuracy": 0.6,
+      "macro_f1": 0.4741,
+      "ece": 0.2005,
+      "brier": 0.6113,
+      "nll": 1.324,
+      "ms_per_case": 213.83,
+      "meta": {
+        "note": "Jev 0.480",
+        "jev": "emotion",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.06
+    },
+    "jev.banking77_full": {
+      "n": 400,
+      "accuracy": 0.4925,
+      "macro_f1": 0.588,
+      "ece": 0.0946,
+      "brier": 0.6744,
+      "nll": 2.0953,
+      "ms_per_case": 901.47,
+      "meta": {
+        "note": "77 labels | Jev 0.870 (72 labels)",
+        "jev": "banking77",
+        "laya_in_training": false,
+        "n_labels": 77
+      },
+      "order_flip_rate": 0.38
+    },
+    "app.support_triage": {
+      "n": 400,
+      "accuracy": 0.505,
+      "macro_f1": 0.4699,
+      "ece": 0.1149,
+      "brier": 0.6603,
+      "nll": 1.4739,
+      "ms_per_case": 931.51,
+      "meta": {
+        "note": "10-way queue routing",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.135
+    },
+    "app.email_spam": {
+      "n": 400,
+      "accuracy": 0.9675,
+      "macro_f1": 0.9675,
+      "ece": 0.1144,
+      "brier": 0.0888,
+      "nll": 0.1819,
+      "ms_per_case": 2936.58,
+      "meta": {
+        "note": "enron spam",
+        "laya_in_training": true
+      }
+    },
+    "app.phishing": {
+      "n": 400,
+      "accuracy": 0.94,
+      "macro_f1": 0.9353,
+      "ece": 0.0762,
+      "brier": 0.1062,
+      "nll": 0.2039,
+      "ms_per_case": 2920.04,
+      "meta": {
+        "note": "phishing emails",
+        "laya_in_training": true
+      }
+    },
+    "app.guardrails_jailbreak": {
+      "n": 400,
+      "accuracy": 0.7625,
+      "macro_f1": 0.733,
+      "ece": 0.0869,
+      "brier": 0.3365,
+      "nll": 0.5061,
+      "ms_per_case": 1543.1,
+      "meta": {
+        "note": "toxic-chat jailbreaking (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.moderation_toxicity": {
+      "n": 400,
+      "accuracy": 0.53,
+      "macro_f1": 0.3967,
+      "ece": 0.244,
+      "brier": 0.5315,
+      "nll": 0.7305,
+      "ms_per_case": 1388.62,
+      "meta": {
+        "note": "toxic-chat toxicity (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.rag_relevance": {
+      "n": 400,
+      "accuracy": 0.625,
+      "macro_f1": 0.6239,
+      "ece": 0.0419,
+      "brier": 0.4458,
+      "nll": 0.6367,
+      "ms_per_case": 599.31,
+      "meta": {
+        "note": "MS MARCO relevance",
+        "laya_in_training": true
+      }
+    },
+    "app.model_routing_domain": {
+      "n": 399,
+      "accuracy": 0.6591,
+      "macro_f1": 0.6852,
+      "ece": 0.1058,
+      "brier": 0.503,
+      "nll": 1.0623,
+      "ms_per_case": 532.94,
+      "meta": {
+        "note": "gsm8k/mbpp/ag_news -> domain",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.11
+    },
+    "extra.sst5": {
+      "n": 400,
+      "accuracy": 0.47,
+      "macro_f1": 0.4475,
+      "ece": 0.0698,
+      "brier": 0.6355,
+      "nll": 1.151,
+      "mae": 0.6563,
+      "ms_per_case": 235.71,
+      "meta": {
+        "note": "ordinal 5-level (score type, held out)",
+        "laya_in_training": false
+      }
+    },
+    "extra.sms_spam": {
+      "n": 400,
+      "accuracy": 0.91,
+      "macro_f1": 0.9096,
+      "ece": 0.1054,
+      "brier": 0.16,
+      "nll": 0.2854,
+      "ms_per_case": 290.58,
+      "meta": {
+        "note": "SMS spam (held out) | independent Jev 0.930",
+        "laya_in_training": false
+      }
+    }
+  },
+  "determinism_repeat_identical": 1.0,
+  "determinism_n": 150
+}

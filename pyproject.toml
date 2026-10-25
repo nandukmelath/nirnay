@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nirnay"
+version = "1.0.0"
+description = "Deterministic, CPU-first decision model (Jev / Laya compatible question spec)"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.2", "numpy", "safetensors", "tokenizers", "huggingface_hub"]
+
+[project.optional-dependencies]
+serve = ["fastapi", "uvicorn"]
+onnx = ["onnxruntime"]
+mcp = ["mcp"]
+
+[project.scripts]
+nirnay = "nirnay.cli:main"
+nirnay-serve = "nirnay.server:main"
+nirnay-mcp = "nirnay.mcp_server:main"
+
+[tool.setuptools]
+packages = ["nirnay"]

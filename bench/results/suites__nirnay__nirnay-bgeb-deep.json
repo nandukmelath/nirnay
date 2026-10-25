@@ -1,0 +1,177 @@
+{
+  "model": "nirnay:models\\nirnay-bgeb-deep",
+  "label": "nirnay-bgeb-deep",
+  "threads": 8,
+  "load_s": 12.1,
+  "timestamp": "2026-10-25 02:52:58",
+  "suites": {
+    "jev.ag_news": {
+      "n": 400,
+      "accuracy": 0.925,
+      "macro_f1": 0.9175,
+      "ece": 0.0349,
+      "brier": 0.1192,
+      "nll": 0.2244,
+      "ms_per_case": 69.3,
+      "meta": {
+        "note": "Jev 0.910",
+        "jev": "ag_news",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.emotion": {
+      "n": 400,
+      "accuracy": 0.55,
+      "macro_f1": 0.4552,
+      "ece": 0.1797,
+      "brier": 0.6398,
+      "nll": 1.3685,
+      "ms_per_case": 48.09,
+      "meta": {
+        "note": "Jev 0.480",
+        "jev": "emotion",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.banking77_full": {
+      "n": 400,
+      "accuracy": 0.61,
+      "macro_f1": 0.6587,
+      "ece": 0.1181,
+      "brier": 0.564,
+      "nll": 1.6935,
+      "ms_per_case": 192.02,
+      "meta": {
+        "note": "77 labels | Jev 0.870 (72 labels)",
+        "jev": "banking77",
+        "laya_in_training": false,
+        "n_labels": 77
+      },
+      "order_flip_rate": 0.0
+    },
+    "app.support_triage": {
+      "n": 400,
+      "accuracy": 0.415,
+      "macro_f1": 0.3615,
+      "ece": 0.0731,
+      "brier": 0.703,
+      "nll": 1.5624,
+      "ms_per_case": 124.38,
+      "meta": {
+        "note": "10-way queue routing",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "app.email_spam": {
+      "n": 400,
+      "accuracy": 0.995,
+      "macro_f1": 0.995,
+      "ece": 0.0036,
+      "brier": 0.0068,
+      "nll": 0.0179,
+      "ms_per_case": 200.07,
+      "meta": {
+        "note": "enron spam",
+        "laya_in_training": true
+      }
+    },
+    "app.phishing": {
+      "n": 400,
+      "accuracy": 0.975,
+      "macro_f1": 0.9737,
+      "ece": 0.0143,
+      "brier": 0.042,
+      "nll": 0.067,
+      "ms_per_case": 231.68,
+      "meta": {
+        "note": "phishing emails",
+        "laya_in_training": true
+      }
+    },
+    "app.guardrails_jailbreak": {
+      "n": 400,
+      "accuracy": 0.695,
+      "macro_f1": 0.5695,
+      "ece": 0.0671,
+      "brier": 0.3759,
+      "nll": 0.5544,
+      "ms_per_case": 85.78,
+      "meta": {
+        "note": "toxic-chat jailbreaking (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.moderation_toxicity": {
+      "n": 400,
+      "accuracy": 0.66,
+      "macro_f1": 0.6427,
+      "ece": 0.1432,
+      "brier": 0.4557,
+      "nll": 0.6873,
+      "ms_per_case": 80.64,
+      "meta": {
+        "note": "toxic-chat toxicity (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.rag_relevance": {
+      "n": 400,
+      "accuracy": 0.655,
+      "macro_f1": 0.6428,
+      "ece": 0.0339,
+      "brier": 0.4238,
+      "nll": 0.6096,
+      "ms_per_case": 92.88,
+      "meta": {
+        "note": "MS MARCO relevance",
+        "laya_in_training": true
+      }
+    },
+    "app.model_routing_domain": {
+      "n": 399,
+      "accuracy": 0.4035,
+      "macro_f1": 0.4519,
+      "ece": 0.0636,
+      "brier": 0.7133,
+      "nll": 1.4067,
+      "ms_per_case": 78.14,
+      "meta": {
+        "note": "gsm8k/mbpp/ag_news -> domain",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "extra.sst5": {
+      "n": 400,
+      "accuracy": 0.4925,
+      "macro_f1": 0.4538,
+      "ece": 0.0662,
+      "brier": 0.6241,
+      "nll": 1.1475,
+      "mae": 0.6444,
+      "ms_per_case": 52.7,
+      "meta": {
+        "note": "ordinal 5-level (score type, held out)",
+        "laya_in_training": false
+      }
+    },
+    "extra.sms_spam": {
+      "n": 400,
+      "accuracy": 0.67,
+      "macro_f1": 0.6385,
+      "ece": 0.2411,
+      "brier": 0.519,
+      "nll": 1.1484,
+      "ms_per_case": 54.74,
+      "meta": {
+        "note": "SMS spam (held out) | independent Jev 0.930",
+        "laya_in_training": false
+      }
+    }
+  },
+  "determinism_repeat_identical": 1.0,
+  "determinism_n": 300
+}

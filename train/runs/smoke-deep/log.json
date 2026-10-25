@@ -1,0 +1,72 @@
+{
+  "run": "smoke-deep",
+  "tag": "smoke",
+  "fusion": "deep",
+  "blocks": 2,
+  "batch": 32,
+  "world": 1,
+  "lr": 0.0003,
+  "adapter_lr": 5e-05,
+  "epochs": 0.5,
+  "evals": [
+    {
+      "acc": 0.5972222222222222,
+      "nll": 1.0227815660373745,
+      "n": 72,
+      "macro_acc": 0.6243,
+      "step": 45,
+      "loss": 1.3243,
+      "elapsed_min": 2.1
+    }
+  ],
+  "best_dev": {
+    "acc": 0.5972222222222222,
+    "nll": 1.0227815660373745,
+    "n": 72,
+    "by_src": {
+      "ag_news": 1.0,
+      "amazon_multi": 0.3333,
+      "bitext": 0.8333,
+      "boolq": 0.0,
+      "civil_comments": 0.8,
+      "clinc": 0.75,
+      "commonsense_qa": 0.6667,
+      "dbpedia": 0.75,
+      "enron_spam": 1.0,
+      "go_emotions": 1.0,
+      "hate_offensive": 0.0,
+      "imdb": 1.0,
+      "mnli": 0.0,
+      "ms_marco": 0.75,
+      "paws": 0.5,
+      "phishing": 0.1818,
+      "qqp": 1.0,
+      "race": 0.6667,
+      "sst2": 0.6667,
+      "support_tickets": 0.0,
+      "tweet_emotion": 1.0,
+      "tweet_hate": 1.0,
+      "tweet_offensive": 1.0,
+      "tweet_sent_multi": 0.0,
+      "yahoo": 1.0,
+      "yelp": 0.3333
+    },
+    "macro_acc": 0.6243,
+    "step": 45,
+    "loss": 1.3243,
+    "elapsed_min": 2.1
+  },
+  "cal_raw": {
+    "acc": 0.5094339622641509,
+    "nll": 0.9967511924062556,
+    "n": 53,
+    "macro_acc": 0.503332
+  },
+  "cal_calibrated": {
+    "acc": 0.5094339622641509,
+    "nll": 0.9967511924062556,
+    "n": 53,
+    "macro_acc": 0.503332
+  },
+  "temperatures": {}
+}

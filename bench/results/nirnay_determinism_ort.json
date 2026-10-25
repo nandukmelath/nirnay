@@ -1,0 +1,11 @@
+{
+  "model": "nirnay:models\\nirnay-v1",
+  "threads": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "cases": 300,
+  "identical_rate": 0.99
+}

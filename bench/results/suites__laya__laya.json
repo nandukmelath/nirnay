@@ -1,0 +1,177 @@
+{
+  "model": "laya:laya",
+  "label": "laya",
+  "threads": 8,
+  "load_s": 11.6,
+  "timestamp": "2026-10-24 07:21:47",
+  "suites": {
+    "jev.ag_news": {
+      "n": 400,
+      "accuracy": 0.95,
+      "macro_f1": 0.9439,
+      "ece": 0.0316,
+      "brier": 0.0808,
+      "nll": 0.1637,
+      "ms_per_case": 522.02,
+      "meta": {
+        "note": "Jev 0.910",
+        "jev": "ag_news",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.emotion": {
+      "n": 400,
+      "accuracy": 0.5925,
+      "macro_f1": 0.4709,
+      "ece": 0.3088,
+      "brier": 0.6963,
+      "nll": 2.184,
+      "ms_per_case": 192.1,
+      "meta": {
+        "note": "Jev 0.480",
+        "jev": "emotion",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.055
+    },
+    "jev.banking77_full": {
+      "n": 400,
+      "accuracy": 0.425,
+      "macro_f1": 0.5267,
+      "ece": 0.381,
+      "brier": 0.9248,
+      "nll": 6.3157,
+      "ms_per_case": 860.14,
+      "meta": {
+        "note": "77 labels | Jev 0.870 (72 labels)",
+        "jev": "banking77",
+        "laya_in_training": false,
+        "n_labels": 77
+      },
+      "order_flip_rate": 0.395
+    },
+    "app.support_triage": {
+      "n": 400,
+      "accuracy": 0.5025,
+      "macro_f1": 0.4802,
+      "ece": 0.0907,
+      "brier": 0.6438,
+      "nll": 1.4237,
+      "ms_per_case": 825.97,
+      "meta": {
+        "note": "10-way queue routing",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.13
+    },
+    "app.email_spam": {
+      "n": 400,
+      "accuracy": 0.9975,
+      "macro_f1": 0.9975,
+      "ece": 0.0109,
+      "brier": 0.0052,
+      "nll": 0.0126,
+      "ms_per_case": 1242.17,
+      "meta": {
+        "note": "enron spam",
+        "laya_in_training": true
+      }
+    },
+    "app.phishing": {
+      "n": 400,
+      "accuracy": 0.98,
+      "macro_f1": 0.9789,
+      "ece": 0.0121,
+      "brier": 0.0292,
+      "nll": 0.048,
+      "ms_per_case": 1262.63,
+      "meta": {
+        "note": "phishing emails",
+        "laya_in_training": true
+      }
+    },
+    "app.guardrails_jailbreak": {
+      "n": 400,
+      "accuracy": 0.7075,
+      "macro_f1": 0.684,
+      "ece": 0.2591,
+      "brier": 0.5389,
+      "nll": 2.953,
+      "ms_per_case": 1233.1,
+      "meta": {
+        "note": "toxic-chat jailbreaking (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.moderation_toxicity": {
+      "n": 400,
+      "accuracy": 0.53,
+      "macro_f1": 0.4003,
+      "ece": 0.2961,
+      "brier": 0.6015,
+      "nll": 0.8865,
+      "ms_per_case": 1215.43,
+      "meta": {
+        "note": "toxic-chat toxicity (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.rag_relevance": {
+      "n": 400,
+      "accuracy": 0.625,
+      "macro_f1": 0.6234,
+      "ece": 0.1175,
+      "brier": 0.4656,
+      "nll": 0.671,
+      "ms_per_case": 599.94,
+      "meta": {
+        "note": "MS MARCO relevance",
+        "laya_in_training": true
+      }
+    },
+    "app.model_routing_domain": {
+      "n": 399,
+      "accuracy": 0.6391,
+      "macro_f1": 0.6397,
+      "ece": 0.0892,
+      "brier": 0.4938,
+      "nll": 1.0889,
+      "ms_per_case": 527.22,
+      "meta": {
+        "note": "gsm8k/mbpp/ag_news -> domain",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.16
+    },
+    "extra.sst5": {
+      "n": 400,
+      "accuracy": 0.3525,
+      "macro_f1": 0.2883,
+      "ece": 0.2821,
+      "brier": 0.8458,
+      "nll": 1.8595,
+      "mae": 0.9582,
+      "ms_per_case": 236.09,
+      "meta": {
+        "note": "ordinal 5-level (score type, held out)",
+        "laya_in_training": false
+      }
+    },
+    "extra.sms_spam": {
+      "n": 400,
+      "accuracy": 0.9375,
+      "macro_f1": 0.9374,
+      "ece": 0.0309,
+      "brier": 0.0983,
+      "nll": 0.4231,
+      "ms_per_case": 292.63,
+      "meta": {
+        "note": "SMS spam (held out) | independent Jev 0.930",
+        "laya_in_training": false
+      }
+    }
+  },
+  "determinism_repeat_identical": 1.0,
+  "determinism_n": 300
+}

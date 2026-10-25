@@ -1,0 +1,40 @@
+{
+  "model": "nirnay:models\\nirnay-smoke",
+  "label": "nirnay-smoke",
+  "threads": 2,
+  "load_s": 9.0,
+  "timestamp": "2026-10-24 07:52:10",
+  "suites": {
+    "jev.ag_news": {
+      "n": 400,
+      "accuracy": 0.78,
+      "macro_f1": 0.7606,
+      "ece": 0.3566,
+      "brier": 0.5071,
+      "nll": 0.9606,
+      "ms_per_case": 61.34,
+      "meta": {
+        "note": "Jev 0.910",
+        "jev": "ag_news",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "extra.sst5": {
+      "n": 400,
+      "accuracy": 0.37,
+      "macro_f1": 0.3312,
+      "ece": 0.0789,
+      "brier": 0.7331,
+      "nll": 1.4416,
+      "mae": 0.9471,
+      "ms_per_case": 41.22,
+      "meta": {
+        "note": "ordinal 5-level (score type, held out)",
+        "laya_in_training": false
+      }
+    }
+  },
+  "determinism_repeat_identical": 1.0,
+  "determinism_n": 50
+}

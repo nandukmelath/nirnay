@@ -1,0 +1,36 @@
+# environments and caches
+.venv/
+.hf/
+.uv_cache/
+__pycache__/
+*.pyc
+build/
+*.egg-info/
+
+# weights live on the Hugging Face Hub (nandukmelath/nirnay)
+models/
+dist/
+*.safetensors
+*.onnx
+*.onnx.data
+*.pt
+
+# training data, encoder caches, run checkpoints (rebuild with train/build_data.py + train/precompute.py)
+train/data/
+train/cache/
+train/runs/*/*
+!train/runs/*/log.json
+train/*.init
+
+# benchmark cases contain third-party dataset text (rebuild with bench/suites.py)
+bench/data/
+
+# logs and local staging
+*.log
+*.err
+*.output
+hf_release/
+hf_release_card.md
+hf_space/nirnay/
+REPORT_overnight.md
+LAUNCH_POSTS.md

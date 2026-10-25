@@ -1,0 +1,178 @@
+{
+  "model": "nirnay:models\\nirnay-bges-deep",
+  "label": "nirnay-v1",
+  "threads": 8,
+  "load_s": 7.3,
+  "timestamp": "2026-10-24 12:52:36",
+  "suites": {
+    "jev.ag_news": {
+      "n": 400,
+      "accuracy": 0.8825,
+      "macro_f1": 0.873,
+      "ece": 0.0387,
+      "brier": 0.1746,
+      "nll": 0.365,
+      "ms_per_case": 34.48,
+      "meta": {
+        "note": "Jev 0.910",
+        "jev": "ag_news",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.emotion": {
+      "n": 400,
+      "accuracy": 0.515,
+      "macro_f1": 0.3901,
+      "ece": 0.0959,
+      "brier": 0.6286,
+      "nll": 1.2335,
+      "ms_per_case": 24.6,
+      "meta": {
+        "note": "Jev 0.480",
+        "jev": "emotion",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.banking77_full": {
+      "n": 400,
+      "accuracy": 0.595,
+      "macro_f1": 0.6976,
+      "ece": 0.0786,
+      "brier": 0.5487,
+      "nll": 1.4229,
+      "ms_per_case": 81.02,
+      "meta": {
+        "note": "77 labels | Jev 0.870 (72 labels)",
+        "jev": "banking77",
+        "laya_in_training": false,
+        "n_labels": 77
+      },
+      "order_flip_rate": 0.0
+    },
+    "app.support_triage": {
+      "n": 400,
+      "accuracy": 0.4175,
+      "macro_f1": 0.3117,
+      "ece": 0.0505,
+      "brier": 0.7115,
+      "nll": 1.6375,
+      "ms_per_case": 57.64,
+      "meta": {
+        "note": "10-way queue routing",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "app.email_spam": {
+      "n": 400,
+      "accuracy": 0.9675,
+      "macro_f1": 0.9673,
+      "ece": 0.0146,
+      "brier": 0.046,
+      "nll": 0.0898,
+      "ms_per_case": 94.63,
+      "meta": {
+        "note": "enron spam",
+        "laya_in_training": true
+      }
+    },
+    "app.phishing": {
+      "n": 400,
+      "accuracy": 0.9475,
+      "macro_f1": 0.9455,
+      "ece": 0.0225,
+      "brier": 0.0859,
+      "nll": 0.1438,
+      "ms_per_case": 102.96,
+      "meta": {
+        "note": "phishing emails",
+        "laya_in_training": true
+      }
+    },
+    "app.guardrails_jailbreak": {
+      "n": 400,
+      "accuracy": 0.7875,
+      "macro_f1": 0.5804,
+      "ece": 0.0601,
+      "brier": 0.2956,
+      "nll": 0.4586,
+      "ms_per_case": 40.03,
+      "meta": {
+        "note": "toxic-chat jailbreaking (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.moderation_toxicity": {
+      "n": 400,
+      "accuracy": 0.595,
+      "macro_f1": 0.5347,
+      "ece": 0.2214,
+      "brier": 0.5469,
+      "nll": 0.8171,
+      "ms_per_case": 38.35,
+      "meta": {
+        "note": "toxic-chat toxicity (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.rag_relevance": {
+      "n": 400,
+      "accuracy": 0.6125,
+      "macro_f1": 0.6075,
+      "ece": 0.0395,
+      "brier": 0.4674,
+      "nll": 0.6608,
+      "ms_per_case": 42.64,
+      "meta": {
+        "note": "MS MARCO relevance",
+        "laya_in_training": true
+      }
+    },
+    "app.model_routing_domain": {
+      "n": 399,
+      "accuracy": 0.4461,
+      "macro_f1": 0.3801,
+      "ece": 0.294,
+      "brier": 0.9015,
+      "nll": 1.9612,
+      "ms_per_case": 37.85,
+      "meta": {
+        "note": "gsm8k/mbpp/ag_news -> domain",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "extra.sst5": {
+      "n": 400,
+      "accuracy": 0.425,
+      "macro_f1": 0.4155,
+      "ece": 0.0728,
+      "brier": 0.6614,
+      "nll": 1.234,
+      "mae": 0.7128,
+      "ms_per_case": 26.25,
+      "meta": {
+        "note": "ordinal 5-level (score type, held out)",
+        "laya_in_training": false
+      }
+    },
+    "extra.sms_spam": {
+      "n": 400,
+      "accuracy": 0.6,
+      "macro_f1": 0.5404,
+      "ece": 0.2958,
+      "brier": 0.6232,
+      "nll": 1.0696,
+      "ms_per_case": 25.25,
+      "meta": {
+        "note": "SMS spam (held out) | independent Jev 0.930",
+        "laya_in_training": false
+      }
+    }
+  },
+  "determinism_repeat_identical": 1.0,
+  "determinism_n": 300,
+  "note": "same weights as nirnay-bges-deep (copied model dir)"
+}

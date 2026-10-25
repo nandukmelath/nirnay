@@ -1,0 +1,13 @@
+{
+  "model": "nirnay:models\\nirnay-v2",
+  "threads": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "cases": 300,
+  "identical_rate": 0.9667,
+  "answer_changes": 0,
+  "max_probability_diff": 0.0001
+}

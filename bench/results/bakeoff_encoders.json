@@ -1,0 +1,157 @@
+{
+  "intfloat/multilingual-e5-small": {
+    "params_m": 117.7,
+    "latency": {
+      "8": {
+        "tokens": 185,
+        "p50_ms": 58.96
+      },
+      "16": {
+        "tokens": 185,
+        "p50_ms": 44.25
+      }
+    },
+    "zero_shot": {
+      "clinc150": 0.65,
+      "go_emotions": 0.16,
+      "sst2": 0.812,
+      "dbpedia14": 0.636,
+      "yahoo10": 0.494,
+      "tweet_emotion": 0.6
+    },
+    "probe": {
+      "clinc150": 0.944,
+      "go_emotions": 0.324,
+      "sst2": 0.802,
+      "dbpedia14": 0.946,
+      "yahoo10": 0.604,
+      "tweet_emotion": 0.684
+    },
+    "zero_shot_mean": 0.5587,
+    "probe_mean": 0.7173
+  },
+  "ibm-granite/granite-embedding-107m-multilingual": {
+    "params_m": 107.0,
+    "latency": {
+      "8": {
+        "tokens": 182,
+        "p50_ms": 19.58
+      },
+      "16": {
+        "tokens": 182,
+        "p50_ms": 22.37
+      }
+    },
+    "zero_shot": {
+      "clinc150": 0.63,
+      "go_emotions": 0.142,
+      "sst2": 0.686,
+      "dbpedia14": 0.628,
+      "yahoo10": 0.516,
+      "tweet_emotion": 0.568
+    },
+    "probe": {
+      "clinc150": 0.946,
+      "go_emotions": 0.27,
+      "sst2": 0.704,
+      "dbpedia14": 0.952,
+      "yahoo10": 0.578,
+      "tweet_emotion": 0.562
+    },
+    "zero_shot_mean": 0.5283,
+    "probe_mean": 0.6687
+  },
+  "BAAI/bge-small-en-v1.5": {
+    "params_m": 33.4,
+    "latency": {
+      "8": {
+        "tokens": 158,
+        "p50_ms": 35.14
+      },
+      "16": {
+        "tokens": 158,
+        "p50_ms": 40.97
+      }
+    },
+    "zero_shot": {
+      "clinc150": 0.726,
+      "go_emotions": 0.196,
+      "sst2": 0.846,
+      "dbpedia14": 0.608,
+      "yahoo10": 0.558,
+      "tweet_emotion": 0.668
+    },
+    "probe": {
+      "clinc150": 0.954,
+      "go_emotions": 0.29,
+      "sst2": 0.832,
+      "dbpedia14": 0.918,
+      "yahoo10": 0.638,
+      "tweet_emotion": 0.684
+    },
+    "zero_shot_mean": 0.6003,
+    "probe_mean": 0.7193
+  },
+  "ibm-granite/granite-embedding-small-english-r2": {
+    "params_m": 47.7,
+    "latency": {
+      "8": {
+        "tokens": 165,
+        "p50_ms": 48.17
+      },
+      "16": {
+        "tokens": 165,
+        "p50_ms": 60.36
+      }
+    },
+    "zero_shot": {
+      "clinc150": 0.608,
+      "go_emotions": 0.126,
+      "sst2": 0.57,
+      "dbpedia14": 0.624,
+      "yahoo10": 0.502,
+      "tweet_emotion": 0.424
+    },
+    "probe": {
+      "clinc150": 0.93,
+      "go_emotions": 0.228,
+      "sst2": 0.64,
+      "dbpedia14": 0.966,
+      "yahoo10": 0.62,
+      "tweet_emotion": 0.57
+    },
+    "zero_shot_mean": 0.4757,
+    "probe_mean": 0.659
+  },
+  "intfloat/multilingual-e5-base": {
+    "params_m": 278.0,
+    "latency": {
+      "8": {
+        "tokens": 185,
+        "p50_ms": 112.07
+      },
+      "16": {
+        "tokens": 185,
+        "p50_ms": 111.86
+      }
+    },
+    "zero_shot": {
+      "clinc150": 0.684,
+      "go_emotions": 0.148,
+      "sst2": 0.868,
+      "dbpedia14": 0.628,
+      "yahoo10": 0.564,
+      "tweet_emotion": 0.572
+    },
+    "probe": {
+      "clinc150": 0.956,
+      "go_emotions": 0.344,
+      "sst2": 0.868,
+      "dbpedia14": 0.948,
+      "yahoo10": 0.604,
+      "tweet_emotion": 0.736
+    },
+    "zero_shot_mean": 0.5773,
+    "probe_mean": 0.7427
+  }
+}

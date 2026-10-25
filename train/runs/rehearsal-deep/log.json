@@ -1,0 +1,55 @@
+{
+  "run": "rehearsal-deep",
+  "tag": "rehearsal",
+  "fusion": "deep",
+  "blocks": 2,
+  "batch": 32,
+  "world": 2,
+  "lr": 0.0002,
+  "adapter_lr": 5e-05,
+  "epochs": 0.2,
+  "evals": [
+    {
+      "acc": 0.53125,
+      "nll": 0.8996461626081647,
+      "n": 160,
+      "macro_acc": 0.5509333333333334,
+      "step": 22,
+      "loss": 0.6877,
+      "elapsed_min": 1.6
+    }
+  ],
+  "best_dev": {
+    "acc": 0.53125,
+    "nll": 0.8996461626081647,
+    "n": 160,
+    "by_src": {
+      "ag_news": 0.7857,
+      "enron_spam": 0.4444,
+      "ms_marco": 0.4186,
+      "phishing": 0.4118,
+      "sst2": 0.8333,
+      "support_tickets": 0.4118
+    },
+    "macro_acc": 0.5509333333333334,
+    "step": 22,
+    "loss": 0.6877,
+    "elapsed_min": 1.6
+  },
+  "cal_raw": {
+    "acc": 0.5895522388059702,
+    "nll": 0.8988884278457381,
+    "n": 134,
+    "macro_acc": 0.6318333333333334
+  },
+  "cal_calibrated": {
+    "acc": 0.5895522388059702,
+    "nll": 0.8579019389158231,
+    "n": 134,
+    "macro_acc": 0.6318333333333334
+  },
+  "temperatures": {
+    "choice:3-5": 0.4296,
+    "noul:2": 0.9227
+  }
+}
