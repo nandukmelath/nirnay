@@ -4,7 +4,7 @@
 no text generation.** Drop-in compatible with the Laya / Jev question format and `/v1/systemone` API.
 
 [![Model on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Model-nandukmelath%2Fnirnay-yellow)](https://huggingface.co/nandukmelath/nirnay)
-[![Live demo](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-live%20demo-blue)](https://huggingface.co/spaces/nandukmelath/nirnay-demo)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nandukmelath/nirnay/blob/main/notebooks/nirnay_demo.ipynb)
 ![License](https://img.shields.io/badge/license-Apache--2.0-green)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![CPU](https://img.shields.io/badge/runs%20on-CPU-orange)
@@ -15,7 +15,7 @@ no text generation.** Drop-in compatible with the Laya / Jev question format and
 every question; Nirnay reads it once — 10 questions take 297 ms instead of 1.4 s, 50 take 0.7 s instead of 6.7 s.*
 
 * **Weights:** [huggingface.co/nandukmelath/nirnay](https://huggingface.co/nandukmelath/nirnay) (v2 default, v1 in `fast/`)
-* **Try it in the browser:** [huggingface.co/spaces/nandukmelath/nirnay-demo](https://huggingface.co/spaces/nandukmelath/nirnay-demo)
+* **Try it free in Colab (CPU runtime):** [notebooks/nirnay_demo.ipynb](https://colab.research.google.com/github/nandukmelath/nirnay/blob/main/notebooks/nirnay_demo.ipynb)
 
 ## Why Nirnay
 
@@ -164,7 +164,8 @@ the workstation setup. Environment variables of each script are documented at it
 | `nirnay/` | the package: encoder, deep-fusion head, engine, few-shot memory, HTTP / MCP servers, CLI |
 | `train/` | data builder, encoder precompute, training (single process or DDP), encoder bake-off |
 | `bench/` | benchmark suites, Laya/Nirnay evaluation, latency, determinism, cold start, few-shot, report |
-| `hf_space/` | the Gradio demo deployed at `nandukmelath/nirnay-demo` (copy `nirnay/` into it to deploy) |
+| `notebooks/` | the Colab demo |
+| `hf_space/` | a Gradio demo app: run it locally with `pip install gradio` and `python hf_space/app.py` (hosting it as a Hugging Face Space needs a PRO plan) |
 | `tools/` | chart generation |
 | `tests/` | invariants: encoder parity with transformers, option-order invariance, rendering, routing |
 
