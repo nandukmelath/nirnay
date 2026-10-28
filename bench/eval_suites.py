@@ -25,7 +25,8 @@ import numpy as np  # noqa: E402
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, ROOT)
-SUITES = os.path.join(HERE, "data", "suites.jsonl")
+SUITES = os.environ.get("BENCH_SUITES_FILE") or os.path.join(HERE, "data", "suites.jsonl")
+OUT_TAG = os.environ.get("BENCH_OUT_TAG", "")   # e.g. "multi" -> results/suites_multi__<kind>__<label>.json
 
 
 class Adapter:
@@ -115,7 +116,7 @@ def main():
     load_s = time.perf_counter() - t
     out = {"model": spec, "label": ad.label, "threads": threads, "load_s": round(load_s, 1),
            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"), "suites": {}}
-    path = os.path.join(HERE, "results", "suites__%s__%s.json" % (ad.kind, ad.label))
+    path = os.path.join(HERE, "results", "suites%s__%s__%s.json" % ("_" + OUT_TAG if OUT_TAG else "", ad.kind, ad.label))
     if os.environ.get("BENCH_MERGE") and os.path.exists(path):   # resume: keep suites already measured
         prev = json.load(open(path))
         out["suites"] = prev.get("suites", {})

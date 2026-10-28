@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.ticker import FixedLocator, NullLocator  # noqa: E402
 
 RES = r"D:\Nirnay\bench\results"
-OUT = r"D:\Nirnay\hf_release\assets\latency.png"
+OUTS = [r"D:\Nirnay\hf_release\assets\latency.png", r"D:\Nirnay\assets\latency.png"]   # model card + GitHub README
 SURFACE, INK, INK2, MUTED, GRID, AXIS = "#fcfcfb", "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7"
 SLOT = ["#2a78d6", "#eb6834", "#1baf7a"]   # blue, orange, aqua
 
@@ -39,7 +39,7 @@ def fmt_ms(v):
 
 def main():
     qs = [1, 5, 10, 50]
-    series = [("Nirnay v2 (default)", nirnay("nirnay_latency_v2.json"), SLOT[0]),
+    series = [("Nirnay v3.1 (default)", nirnay("nirnay_latency_v31.json"), SLOT[0]),
               ("Nirnay v1 (fast)", nirnay("nirnay_latency_v1.json"), SLOT[1]),
               ("Laya, fastest checkpoint + backend", laya_fastest(), SLOT[2])]
     plt.rcParams.update({"font.family": ["Segoe UI", "DejaVu Sans"], "font.size": 10})
@@ -77,9 +77,10 @@ def main():
              ha="left", va="top")
     leg = ax.legend(loc="upper left", frameon=False, fontsize=9.5, labelcolor=INK2, handlelength=1.8)
     fig.subplots_adjust(left=0.10, right=0.74, top=0.82, bottom=0.13)
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    fig.savefig(OUT, facecolor=SURFACE)
-    print("wrote", OUT, [s[1] for s in series])
+    for out in OUTS:
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        fig.savefig(out, facecolor=SURFACE)
+    print("wrote", OUTS, [s[1] for s in series])
 
 
 if __name__ == "__main__":

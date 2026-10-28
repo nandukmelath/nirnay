@@ -11,6 +11,11 @@ Datasets Laya also trained on (ag_news, enron spam, phishing, support tickets, M
 only rows that are not in the benchmark cases, and any state whose text appears in a benchmark
 suite is dropped.
 
+v3 adds request routing (code / math / SQL / writing / trivia / small-talk sources, never gsm8k or mbpp),
+short-message spam (any text that matches the held-out UCI SMS collection is dropped), request safety
+(NVIDIA Aegis 2.0, which is not a jailbreak dataset), urgency questions, and more phrasings of every
+shared question template.
+
   python train\\build_data.py          (NIRNAY_SCALE=0.1 for a quick smoke build)
 """
 import hashlib
@@ -59,11 +64,13 @@ EVAL_KEYS = set()
 def load_eval_keys():
     if not os.path.exists(SUITES):
         sys.exit("build the benchmark suites first: python bench\\suites.py")
-    for line in open(SUITES, encoding="utf-8"):
-        r = json.loads(line)
-        for s in leaves(r["state"]):
-            if len(s) >= 20:
-                EVAL_KEYS.add(norm(s))
+    multi = os.path.join(ROOT, "bench", "data", "suites_multi.jsonl")   # MASSIVE + SIB-200, when built
+    for path in [SUITES] + ([multi] if os.path.exists(multi) else []):
+        for line in open(path, encoding="utf-8"):
+            r = json.loads(line)
+            for s in leaves(r["state"]):
+                if len(s) >= 20:
+                    EVAL_KEYS.add(norm(s))
     print("eval texts held out:", len(EVAL_KEYS), flush=True)
 
 
@@ -384,12 +391,13 @@ QUEUES = {"Technical Support": "technical problems, bugs, outages, integrations"
           "General Inquiry": "anything else"}
 
 
-def src_support_tickets(rng):
+def _support_rows():
+    """Ticket rows usable for training: skips the rows the benchmark uses (the first 400 English rows that
+    pass its filter; we skip 1500)."""
     d = load_dataset("Tobi-Bueck/customer-support-tickets", split="train")
-    # skip the rows the benchmark uses: the first 400 English rows that pass its filter (we skip 1500)
     seen_en = 0
     keep = []
-    for i, r in enumerate(d):
+    for r in d:
         if not r.get("body") or r.get("queue") not in QUEUES:
             continue
         if r.get("language") == "en":
@@ -397,6 +405,11 @@ def src_support_tickets(rng):
             if seen_en <= 1500:
                 continue
         keep.append(r)
+    return keep
+
+
+def src_support_tickets(rng):
+    keep = _support_rows()
     rng.shuffle(keep)
     keys = list(QUEUES)
     pri_levels = {"low": 0, "medium": 1, "high": 2}
@@ -679,10 +692,354 @@ def src_tweet_off_hate(rng):
             yield "tweet_" + cfg, st, noul_q(pick(rng, ins).format(ref=ref)), int(r["label"])
 
 
+# ------------------------------------------------------------------ v3: wording variety
+# More phrasings of the shared templates, so an answer depends on the concept asked, not on one exact wording.
+TOPIC_INS += ["What subject does {ref} deal with?", "Which topic fits {ref} best?", "What theme does {ref} cover?",
+              "Under which heading would you file {ref}?", "Which category does {ref} fall into?",
+              "What area is {ref} concerned with?", "Name the topic of {ref}.", "What kind of story is {ref}?"]
+SENT_INS += ["Is the tone of {ref} positive or negative?", "What opinion does {ref} convey?",
+             "Does {ref} sound favourable or critical?", "How would you describe the sentiment in {ref}?",
+             "What is the writer's attitude in {ref}?", "Is the author of {ref} pleased or displeased?",
+             "Which sentiment best matches {ref}?", "What overall feeling does {ref} give?"]
+EMO_INS += ["Which feeling comes through in {ref}?", "What emotion best describes {ref}?",
+            "Which emotion is the author of {ref} showing?", "What mood does {ref} convey?",
+            "Name the dominant emotion in {ref}.", "How is the writer of {ref} feeling?",
+            "Which emotional state does {ref} reflect?", "What is the strongest emotion in {ref}?"]
+INTENT_INS += ["What is the user trying to do in {ref}?", "What request is made in {ref}?", "Which goal does {ref} express?",
+               "What does the sender of {ref} need?", "What task is {ref} about?", "Identify the intent behind {ref}.",
+               "What help is requested in {ref}?", "Why did the user send {ref}?"]
+SCORE_INS += ["How favourable is the opinion in {ref}?", "On this scale, how happy is the writer of {ref}?",
+              "How would the author of {ref} rate it?", "How pleased is the writer of {ref}?", "Score how positive {ref} is.",
+              "What level of satisfaction does {ref} show?", "How much did the writer of {ref} like it?",
+              "Where does {ref} fall on the scale?"]
+SPAM_GENERIC += ["Is {ref} junk?", "Does {ref} look like spam?", "Is {ref} an unwanted promotional message?",
+                 "Should {ref} be filtered out as spam?", "Is {ref} a mass-marketing or scam message?",
+                 "Would you mark {ref} as spam?", "Is {ref} unsolicited?", "Is {ref} spam rather than a genuine message?"]
+TOX_INS += ["Is {ref} offensive or hostile?", "Does {ref} insult or demean someone?", "Is the language in {ref} abusive?",
+            "Would a moderator remove {ref} for toxicity?", "Is {ref} disrespectful?", "Does {ref} contain toxic language?",
+            "Is {ref} hurtful or aggressive?", "Is {ref} likely to upset or drive away readers?"]
+REL_INS += ["Is `passage` useful for answering `query`?", "Does `passage` address `query`?",
+            "Can `query` be answered from `passage`?", "Is `passage` on topic for `query`?",
+            "Does `passage` give information that answers `query`?", "Would `passage` satisfy someone searching for `query`?"]
+
+
+def _alnum(s):
+    return re.sub(r"[^a-z0-9]+", " ", str(s).lower()).strip()
+
+
+_SODA = []
+
+
+def _soda_openers(k):
+    """First lines of SODA dialogues: everyday casual messages (streamed; the corpus has 1.2M dialogues)."""
+    if len(_SODA) < k:
+        import itertools
+        _SODA.clear()
+        for r in itertools.islice(load_dataset("allenai/soda", split="train", streaming=True), k * 3):
+            t = ((r.get("dialogue") or [""])[0] or "").strip()
+            if 12 <= len(t) <= 220:
+                _SODA.append(t)
+            if len(_SODA) >= k:
+                break
+    return _SODA[:k]
+
+
+# ------------------------------------------------------------------ v3: request routing
+# Which kind of task a request is. Built from code, math, SQL, writing, trivia and small-talk sources; the routing
+# benchmark's own sources (gsm8k, mbpp) stay held out.
+ROUTE_DOMAINS = ["code", "math", "data", "writing", "facts", "chat"]
+ROUTE_TAX = [
+    {"code": ("code", "programming, debugging, software"), "math": ("math", "calculations, word problems, proofs"),
+     "data": ("data analysis", "SQL queries, tables, statistics"), "writing": ("writing", "stories, essays, emails, creative text"),
+     "facts": ("factual question", "facts, definitions, trivia, history"), "chat": ("chitchat", "small talk and casual conversation")},
+    {"code": ("programming", "writing or fixing code"), "math": ("mathematics", "solving a math or logic problem"),
+     "data": ("data and SQL", "querying or analysing data"), "writing": ("creative writing", "producing a story, post or other text"),
+     "facts": ("general knowledge", "looking up a fact"), "chat": ("casual chat", "chatting without a specific task")},
+    {"code": ("software engineering", None), "math": ("math or logic", None), "data": ("analytics", None),
+     "writing": ("content writing", None), "facts": ("knowledge lookup", None), "chat": ("conversation", None)},
+]
+ROUTE_MODELS = {"code": "a coding assistant", "math": "a math solver", "data": "a data analyst",
+                "writing": "a writing assistant", "facts": "a search or encyclopedia assistant", "chat": "a friendly chat companion"}
+ROUTE_INS = ["What domain does {ref} belong to?", "Which kind of request is {ref}?", "What type of task does {ref} describe?",
+             "Which category best fits the request in {ref}?", "What is {ref} asking for help with?",
+             "Route {ref} to the right category.", "What area does the request in {ref} fall under?",
+             "Which skill is needed to handle {ref}?", "What sort of task is {ref}?", "Classify {ref} by task type."]
+ROUTE_MODEL_INS = ["Which assistant should handle {ref}?", "Which model is best suited to {ref}?", "Who should answer {ref}?",
+                   "Send {ref} to which specialist?"]
+ROUTE_NOUL = {"code": ["Is {ref} a programming request?", "Does {ref} ask for code?", "Would a coding assistant handle {ref}?"],
+              "math": ["Does {ref} ask to solve a math problem?", "Is {ref} a math question?", "Does {ref} need a calculation?"],
+              "data": ["Is {ref} about querying or analysing data?", "Does {ref} need SQL or data analysis?"],
+              "writing": ["Does {ref} ask for creative writing?", "Is {ref} a writing task?"],
+              "facts": ["Is {ref} a factual question?", "Does {ref} ask to look up a fact?"],
+              "chat": ["Is {ref} small talk?", "Is {ref} casual conversation?"]}
+
+
+def src_route(rng):
+    pool = []
+
+    def add(texts, dom, k):
+        texts = [t.strip() for t in texts if t and len(t.strip()) >= 12]
+        pool.extend((t[:1500], dom) for t in rng.sample(texts, min(k, len(texts))))
+
+    d = load_dataset("sahil2801/CodeAlpaca-20k", split="train")
+    add([r["instruction"] + ("\n" + r["input"] if r["input"] and rng.random() < 0.5 else "") for r in d], "code", n_(1840))
+    add(load_dataset("openai/openai_humaneval", split="test")["prompt"], "code", n_(164))
+    sv = []
+    for sp in ("train", "test"):
+        sv += [r["Body"].strip() + " " + r["Question"].strip() for r in load_dataset("ChilleD/SVAMP", split=sp)]
+    add(sv, "math", n_(800))
+    add(load_dataset("deepmind/aqua_rat", "raw", split="train")["question"], "math", n_(600))
+    for cfg in ("algebra", "counting_and_probability", "geometry", "intermediate_algebra", "number_theory", "prealgebra",
+                "precalculus"):
+        add(load_dataset("EleutherAI/hendrycks_math", cfg, split="train")["problem"], "math", n_(86))
+    d = load_dataset("b-mc2/sql-create-context", split="train")
+    add([r["question"] + ("\nTable: " + r["context"] if rng.random() < 0.3 else "") for r in d], "data", n_(1000))
+    d = load_dataset("gretelai/synthetic_text_to_sql", split="train")
+    add([r["sql_prompt"] + ("\nSchema: " + r["sql_context"][:600] if rng.random() < 0.3 else "") for r in d], "data", n_(1000))
+    wp = [re.sub(r"^(\s*\[\s*[A-Za-z]+\s*\]\s*)+", "", p) for p in load_dataset("euclaise/writingprompts", split="validation")["prompt"]]
+    add([("Write a story: " + p if rng.random() < 0.5 else p) for p in wp], "writing", n_(1000))
+    dolly = load_dataset("databricks/databricks-dolly-15k", split="train")
+    add([r["instruction"] for r in dolly if r["category"] in ("creative_writing", "brainstorming")], "writing", n_(1000))
+    add([r["instruction"] for r in dolly if r["category"] in ("open_qa", "general_qa")], "facts", n_(800))
+    nq = load_dataset("google-research-datasets/nq_open", split="train")["question"][:40000]
+    add([q[0].upper() + q[1:] + ("" if q.endswith("?") else "?") for q in nq], "facts", n_(900))
+    add(load_dataset("fancyzhx/dbpedia_14", split="train").shuffle(seed=SEED + 7).select(range(4000))["content"], "facts", n_(300))
+    add(_soda_openers(n_(2000)), "chat", n_(2000))
+    rng.shuffle(pool)
+    for text, dom in pool:
+        st, ref = wrap(rng, text, ["request", "query", "prompt", "message", "user_input", "question", "task"], p_plain=0.3)
+        u = rng.random()
+        if u < 0.55:
+            tax = pick(rng, ROUTE_TAX)
+            labels = [tax[k][0] for k in ROUTE_DOMAINS]
+            descs = {tax[k][0]: tax[k][1] for k in ROUTE_DOMAINS} if tax["code"][1] else None
+            q, y = choice_q(rng, pick(rng, ROUTE_INS).format(ref=ref), labels, ROUTE_DOMAINS.index(dom), descs,
+                            p_full=0.6, p_desc=0.6)
+        elif u < 0.75:
+            q, y = choice_q(rng, pick(rng, ROUTE_MODEL_INS).format(ref=ref), [ROUTE_MODELS[k] for k in ROUTE_DOMAINS],
+                            ROUTE_DOMAINS.index(dom), None, p_full=0.6)
+        else:
+            asked = dom if rng.random() < 0.5 else pick(rng, [k for k in ROUTE_DOMAINS if k != dom])
+            q, y = noul_q(pick(rng, ROUTE_NOUL[asked]).format(ref=ref)), int(asked == dom)
+        yield "route", st, q, y
+
+
+# ------------------------------------------------------------------ v3: short-message spam
+HAM_INS = ["Is {ref} a legitimate message?", "Is {ref} a normal personal, work or service message?",
+           "Is {ref} a genuine message rather than spam?", "Can {ref} be trusted as a real message?"]
+_UCI = set()
+
+
+def _uci_sms_keys():
+    """Every text of ucirvine/sms_spam (a held-out benchmark dataset): no training text may match one."""
+    if not _UCI:
+        _UCI.update(_alnum(r["sms"]) for r in load_dataset("ucirvine/sms_spam", split="train"))
+    return _UCI
+
+
+def src_short_msgs(rng):
+    uci = _uci_sms_keys()
+    d = load_dataset("CloveAI/india-spam-sms", split="train")
+    spam = [r["text"] for r in d if str(r["label"]) == "1"]
+    ham = [r["text"] for r in d if str(r["label"]) == "0"]
+    t = load_dataset("alissonpadua/ham-spam-scam-toxic", split="train")
+    templ = [r["text"] for r in t if r["label"] in ("spam", "scam")]   # templated: only a small sample, for variety
+    pos = rng.sample(spam, min(len(spam), n_(2600))) + rng.sample(templ, n_(400))
+    neg = rng.sample(ham, min(len(ham), n_(2400))) + _soda_openers(3000 + n_(600))[3000:]   # past the openers routing uses
+    items = [(x, 1) for x in pos] + [(x, 0) for x in neg]
+    items = [(x.strip(), y) for x, y in items if x and x.strip() and _alnum(x) not in uci]
+    rng.shuffle(items)
+    for text, y in items:
+        st, ref = wrap(rng, text[:600], ["sms", "message", "text", "msg", "chat_message", "notification", "comment"], p_plain=0.3)
+        u = rng.random()
+        if u < 0.6:
+            q, yy = noul_q(pick(rng, SPAM_GENERIC).format(ref=ref)), y
+        elif u < 0.75:
+            q, yy = noul_q(pick(rng, HAM_INS).format(ref=ref)), 1 - y
+        else:
+            q, yy = choice_q(rng, pick(rng, ["Is {ref} spam or a normal message?", "Classify {ref} as spam or legitimate."]).format(ref=ref),
+                             ["legitimate", "spam"], y, {"legitimate": "a normal personal, work or service message",
+                                                         "spam": "unsolicited promotion, scam or junk"}, p_full=1.0)
+        yield "short_msgs", st, q, yy
+
+
+# ------------------------------------------------------------------ v3: request safety (NVIDIA Aegis 2.0, CC-BY-4.0)
+# Harmful-request detection and harm categories. Not a jailbreak dataset: those all stay held out.
+AEGIS_CATS = {"Criminal Planning/Confessions": "planning or admitting a crime", "Violence": "violence",
+              "Hate/Identity Hate": "hate against a group of people", "Harassment": "harassment or bullying",
+              "Profanity": "profanity or obscene language", "Sexual": "sexual content",
+              "Controlled/Regulated Substances": "drugs or other controlled substances",
+              "PII/Privacy": "someone's private personal information", "Guns and Illegal Weapons": "guns or illegal weapons",
+              "Suicide and Self Harm": "suicide or self-harm", "Unauthorized Advice": "risky medical, legal or financial advice",
+              "Political/Misinformation/Conspiracy": "misinformation or conspiracy theories",
+              "Fraud/Deception": "fraud or deception", "Sexual (minor)": "sexual content involving minors",
+              "Illegal Activity": "illegal activity", "Threat": "threats", "Malware": "malware or hacking",
+              "Copyright/Trademark/Plagiarism": "copyright infringement or plagiarism"}
+SAFE_NONE = "none: a safe, harmless request"
+# Content-harm wording only. Aegis labels say whether the CONTENT is harmful; phrasings about AI-assistant behaviour,
+# policies or filters ("should an assistant decline...") taught v3 to equate "harmful" with "tries to make an AI
+# ignore its rules" (jailbreak AUC 0.71 -> 0.56), a different concept these labels do not encode.
+SAFETY_INS = ["Is {ref} a harmful or unsafe request?", "Does {ref} ask for dangerous, illegal or abusive content?",
+              "Could answering {ref} cause harm?", "Is {ref} requesting something harmful?", "Is {ref} a request for harmful content?",
+              "Does {ref} seek to hurt someone or break the law?", "Is the content of {ref} dangerous?"]
+SAFE_INS = ["Is {ref} a harmless request?", "Is {ref} an acceptable request?", "Is {ref} harmless?", "Is {ref} a benign request?"]
+CAT_NOUL = ["Does {ref} involve {label}?", "Is {ref} about {label}?", "Does {ref} ask for {label}?", "Does {ref} contain {label}?"]
+CAT_CHOICE = ["What kind of harm does {ref} involve?", "Which risk category fits {ref}?",
+              "What type of unsafe content, if any, is in {ref}?"]
+
+
+def src_aegis(rng):
+    d = load_dataset("nvidia/Aegis-AI-Content-Safety-Dataset-2.0", split="train")
+    rows = [r for r in d if (r["prompt"] or "").strip() not in ("", "REDACTED") and r["prompt_label"] in ("safe", "unsafe")]
+    rng.shuffle(rows)
+    allc = list(AEGIS_CATS)
+    for r in rows[:n_(9000)]:
+        y = int(r["prompt_label"] == "unsafe")
+        cats = [c.strip() for c in (r["violated_categories"] or "").split(",") if c.strip()]
+        known = [c for c in cats if c in AEGIS_CATS]
+        st, ref = wrap(rng, r["prompt"].strip()[:2000], ["prompt", "request", "message", "user_input", "query"], p_plain=0.3)
+        u = rng.random()
+        if u < 0.5:
+            q, yy = noul_q(pick(rng, SAFETY_INS).format(ref=ref)), y
+        elif u < 0.65:
+            q, yy = noul_q(pick(rng, SAFE_INS).format(ref=ref)), 1 - y
+        elif y and not known:   # unsafe without a named category: category questions would be ambiguous
+            continue
+        elif u < 0.85:
+            if y and rng.random() < 0.5:
+                c, yy = pick(rng, known), 1
+            else:
+                c, yy = pick(rng, [x for x in allc if x not in cats]), 0
+            q = noul_q(pick(rng, CAT_NOUL).format(ref=ref, label=AEGIS_CATS[c]))
+        else:
+            gold = AEGIS_CATS[pick(rng, known)] if y else SAFE_NONE
+            labels = rng.sample([AEGIS_CATS[c] for c in allc if c not in cats], rng.randint(2, 5)) + [gold]
+            if y:
+                labels.append(SAFE_NONE)
+            rng.shuffle(labels)
+            q = {"type": "choice", "instructions": pick(rng, CAT_CHOICE).format(ref=ref), "criteria": {l: None for l in labels}}
+            yy = labels.index(gold)
+        yield "aegis_safety", st, q, yy
+
+
+# ------------------------------------------------------------------ v3: urgency, asked many ways
+URGENCY_INS = ["Is this ticket urgent?", "Does the customer express urgency?", "Does this ticket need immediate attention?",
+               "Is the sender in a hurry?", "Should this ticket be handled first?", "Is this a time-critical request?",
+               "Does the writer sound urgent?", "Is this an emergency for the customer?", "Must this be resolved right away?",
+               "Is the customer asking for a fast response?", "Is this request time-sensitive?",
+               "Does this issue need to be fixed quickly?"]
+URGENCY_REF = ["Is {ref} urgent?", "Does {ref} express urgency?", "Does {ref} need immediate attention?",
+               "Is the writer of {ref} in a hurry?", "Is {ref} time-sensitive?", "Should {ref} be dealt with right away?"]
+
+
+def src_ticket_urgency(rng):
+    rows = [r for r in _support_rows() if r.get("language") == "en"]
+    high = [r for r in rows if str(r.get("priority", "")).lower() == "high"]
+    low = [r for r in rows if str(r.get("priority", "")).lower() == "low"]
+    k = min(len(high), len(low), n_(3500) // 2)                    # balanced: the base rate must not decide the answer
+    rows = rng.sample(high, k) + rng.sample(low, k)
+    rng.shuffle(rows)
+    for r in rows:
+        y = int(str(r["priority"]).lower() == "high")
+        body = r["body"].replace("\\n", "\n")[:3000]
+        if rng.random() < 0.6:
+            st, q = {"subject": r["subject"] or "", "body": body}, noul_q(pick(rng, URGENCY_INS))
+        else:
+            st, ref = wrap(rng, body, ["ticket", "message", "email", "request"], p_plain=0.3)
+            q = noul_q(pick(rng, URGENCY_REF).format(ref=ref))
+        yield "ticket_urgency", st, q, y
+
+
+# ------------------------------------------------------------------ multilingual sources (Nirnay-multilingual only)
+# English builds skip these and amazon_multi / tweet_sent_multi:
+#   NIRNAY_SKIP_SOURCES=amazon_multi,tweet_sent_multi,mtop,paws_x,nli_multi,toxic_multi,lang_id
+# MASSIVE and SIB-200 (the multilingual benchmarks) stay held out; MTOP is a different dataset with similar
+# assistant intents.
+def _mtop_intent(x):
+    return x.split(":", 1)[-1].lower().replace("_", " ")
+
+
+def src_mtop(rng):
+    d = load_dataset("tasksource/mtop", split="train").shuffle(seed=SEED)
+    intents = sorted({_mtop_intent(x) for x in d["intent"]})
+    domains = sorted(set(d["domain"]))
+    for r in d.select(range(min(len(d), n_(10000)))):
+        st, ref = wrap(rng, r["question"], ["utterance", "message", "query", "request", "command"])
+        u = rng.random()
+        if u < 0.6:
+            q, y = choice_q(rng, pick(rng, INTENT_INS).format(ref=ref), intents, intents.index(_mtop_intent(r["intent"])),
+                            None, kmax=48, p_full=0.1, kmin=4)
+        elif u < 0.85:
+            q, y = choice_q(rng, pick(rng, ["Which assistant domain does {ref} belong to?", "Which app should handle {ref}?",
+                                            "What area is {ref} about?"]).format(ref=ref), domains, domains.index(r["domain"]),
+                            None, p_full=0.7)
+        else:
+            q, y = noul_from_class(rng, ["Does {ref} ask to {label}?", "Is {ref} a request to {label}?"], ref, intents,
+                                   intents.index(_mtop_intent(r["intent"])))
+        yield "mtop", st, q, y
+
+
+def src_paws_x(rng):
+    for lang in ("de", "es", "fr", "ja", "ko", "zh"):
+        d = load_dataset("google-research-datasets/paws-x", lang, split="train").shuffle(seed=SEED)
+        for r in d.select(range(min(len(d), n_(900)))):
+            if r["sentence1"] and r["sentence2"]:
+                yield _pair(rng, "paws_x", r["sentence1"], r["sentence2"], int(r["label"]), "s")
+
+
+def src_nli_multi(rng):
+    from huggingface_hub import HfApi
+    repo = "MoritzLaurer/multilingual-NLI-26lang-2mil7"
+    files = sorted(f for f in HfApi().list_repo_files(repo, repo_type="dataset") if f.endswith(".parquet") and "_mnli-" in f)
+    for f in files:   # machine-translated MNLI in 26 languages (labels: 0 entailment, 1 neutral, 2 contradiction)
+        d = load_dataset("parquet", data_files="hf://datasets/%s/%s" % (repo, f), split="train").shuffle(seed=SEED)
+        for r in d.select(range(min(len(d), n_(380)))):
+            if r["premise"] and r["hypothesis"] and int(r["label"]) in (0, 1, 2):
+                yield _nli(rng, "nli_multi", r["premise"], r["hypothesis"], int(r["label"]))
+
+
+def src_toxic_multi(rng):
+    for lang in ("ru", "uk", "de", "es", "am", "zh", "ar", "hi", "it", "fr", "he", "hin", "tt", "ja"):
+        d = load_dataset("textdetox/multilingual_toxicity_dataset", split=lang).shuffle(seed=SEED)
+        for r in d.select(range(min(len(d), n_(650)))):
+            st, ref = wrap(rng, r["text"][:1500], ["comment", "post", "text", "message"])
+            y = int(r["toxic"])
+            if rng.random() < 0.8:
+                yield "toxic_multi", st, noul_q(pick(rng, TOX_INS).format(ref=ref)), y
+            else:
+                q, y = choice_q(rng, "Is {ref} acceptable or toxic?".format(ref=ref), ["acceptable", "toxic"], y,
+                                {"acceptable": "civil, polite or neutral", "toxic": "rude, insulting or hateful"}, p_full=1.0)
+                yield "toxic_multi", st, q, y
+
+
+LANG_NAMES = {"ar": "Arabic", "bg": "Bulgarian", "de": "German", "el": "Greek", "en": "English", "es": "Spanish",
+              "fr": "French", "hi": "Hindi", "it": "Italian", "ja": "Japanese", "nl": "Dutch", "pl": "Polish",
+              "pt": "Portuguese", "ru": "Russian", "sw": "Swahili", "th": "Thai", "tr": "Turkish", "ur": "Urdu",
+              "vi": "Vietnamese", "zh": "Chinese"}
+
+
+def src_lang_id(rng):
+    d = load_dataset("papluca/language-identification", split="train").shuffle(seed=SEED)
+    codes = sorted(LANG_NAMES)
+    names = [LANG_NAMES[c] for c in codes]
+    for r in d.select(range(min(len(d), n_(6000)))):
+        st, ref = wrap(rng, r["text"][:1000], ["text", "message", "sentence", "comment"])
+        g = codes.index(r["labels"])
+        if rng.random() < 0.75:
+            q, y = choice_q(rng, pick(rng, ["Which language is {ref} written in?", "What language is {ref} in?",
+                                            "Identify the language of {ref}."]).format(ref=ref), names, g, None,
+                            kmax=8, p_full=0.15, kmin=3)
+        else:
+            q, y = noul_from_class(rng, ["Is {ref} written in {label}?", "Is the language of {ref} {label}?"], ref, names, g)
+        yield "lang_id", st, q, y
+
+
 SOURCES = [src_ag_news, src_dbpedia, src_yahoo, src_20ng, src_sst2, src_imdb, src_yelp, src_amazon_multi,
            src_tweet_sent_multi, src_go_emotions, src_tweet_emotion, src_clinc, src_bitext, src_support_tickets,
            src_enron, src_phishing, src_mnli, src_snli, src_paws, src_qqp, src_mrpc, src_boolq, src_race, src_csqa,
-           src_msmarco, src_civil, src_hate_offensive, src_tweet_off_hate]
+           src_msmarco, src_civil, src_hate_offensive, src_tweet_off_hate,
+           src_route, src_short_msgs, src_aegis, src_ticket_urgency,
+           src_mtop, src_paws_x, src_nli_multi, src_toxic_multi, src_lang_id]
 
 
 def split_of(state) -> str:

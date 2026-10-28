@@ -1,0 +1,269 @@
+{
+  "meta": {
+    "timestamp": "2026-10-28 14:11:53",
+    "cpu": "2x Xeon E5-2630 v3 (HP Z840)",
+    "model": "nirnay-bgeb31-deep",
+    "model_dir": "D:\\Nirnay\\models\\nirnay-v31"
+  },
+  "cold_load_ms": 3986.1,
+  "rss_delta_mb": 612.0,
+  "disk_mb": 526.5,
+  "by_threads": {
+    "1": {
+      "1_questions": {
+        "warm": {
+          "p50_ms": 527.2,
+          "p95_ms": 529.4,
+          "mean_ms": 527.17,
+          "min_ms": 525.08
+        },
+        "cold_schema": {
+          "p50_ms": 685.73,
+          "p95_ms": 738.25,
+          "mean_ms": 693.96,
+          "min_ms": 677.56
+        },
+        "ms_per_question_warm": 527.2
+      },
+      "5_questions": {
+        "warm": {
+          "p50_ms": 752.91,
+          "p95_ms": 804.8,
+          "mean_ms": 761.34,
+          "min_ms": 747.42
+        },
+        "cold_schema": {
+          "p50_ms": 1466.34,
+          "p95_ms": 1543.46,
+          "mean_ms": 1473.5,
+          "min_ms": 1435.1
+        },
+        "ms_per_question_warm": 150.582
+      },
+      "10_questions": {
+        "warm": {
+          "p50_ms": 1000.23,
+          "p95_ms": 1055.42,
+          "mean_ms": 1009.74,
+          "min_ms": 996.46
+        },
+        "cold_schema": {
+          "p50_ms": 2406.39,
+          "p95_ms": 2565.84,
+          "mean_ms": 2411.38,
+          "min_ms": 2278.71
+        },
+        "ms_per_question_warm": 100.023
+      },
+      "50_questions": {
+        "warm": {
+          "p50_ms": 2809.78,
+          "p95_ms": 2965.98,
+          "mean_ms": 2842.49,
+          "min_ms": 2764.48
+        },
+        "cold_schema": {
+          "p50_ms": 8394.29,
+          "p95_ms": 8440.47,
+          "mean_ms": 8375.63,
+          "min_ms": 8259.77
+        },
+        "ms_per_question_warm": 56.196
+      }
+    },
+    "4": {
+      "1_questions": {
+        "warm": {
+          "p50_ms": 172.25,
+          "p95_ms": 175.47,
+          "mean_ms": 172.69,
+          "min_ms": 170.83
+        },
+        "cold_schema": {
+          "p50_ms": 239.7,
+          "p95_ms": 267.76,
+          "mean_ms": 241.87,
+          "min_ms": 225.67
+        },
+        "ms_per_question_warm": 172.25
+      },
+      "5_questions": {
+        "warm": {
+          "p50_ms": 239.93,
+          "p95_ms": 274.64,
+          "mean_ms": 246.35,
+          "min_ms": 237.39
+        },
+        "cold_schema": {
+          "p50_ms": 463.18,
+          "p95_ms": 492.33,
+          "mean_ms": 469.03,
+          "min_ms": 457.85
+        },
+        "ms_per_question_warm": 47.986
+      },
+      "10_questions": {
+        "warm": {
+          "p50_ms": 312.88,
+          "p95_ms": 316.34,
+          "mean_ms": 313.57,
+          "min_ms": 309.7
+        },
+        "cold_schema": {
+          "p50_ms": 709.21,
+          "p95_ms": 713.11,
+          "mean_ms": 709.27,
+          "min_ms": 705.21
+        },
+        "ms_per_question_warm": 31.288
+      },
+      "50_questions": {
+        "warm": {
+          "p50_ms": 894.87,
+          "p95_ms": 930.65,
+          "mean_ms": 900.23,
+          "min_ms": 885.7
+        },
+        "cold_schema": {
+          "p50_ms": 2701.75,
+          "p95_ms": 2846.7,
+          "mean_ms": 2695.43,
+          "min_ms": 2547.22
+        },
+        "ms_per_question_warm": 17.897
+      }
+    },
+    "8": {
+      "1_questions": {
+        "warm": {
+          "p50_ms": 129.29,
+          "p95_ms": 139.83,
+          "mean_ms": 130.06,
+          "min_ms": 124.05
+        },
+        "cold_schema": {
+          "p50_ms": 189.73,
+          "p95_ms": 205.92,
+          "mean_ms": 189.57,
+          "min_ms": 178.75
+        },
+        "ms_per_question_warm": 129.29
+      },
+      "5_questions": {
+        "warm": {
+          "p50_ms": 183.33,
+          "p95_ms": 201.17,
+          "mean_ms": 186.48,
+          "min_ms": 169.74
+        },
+        "cold_schema": {
+          "p50_ms": 359.15,
+          "p95_ms": 395.34,
+          "mean_ms": 354.4,
+          "min_ms": 313.64
+        },
+        "ms_per_question_warm": 36.666
+      },
+      "10_questions": {
+        "warm": {
+          "p50_ms": 231.88,
+          "p95_ms": 262.03,
+          "mean_ms": 236.88,
+          "min_ms": 218.28
+        },
+        "cold_schema": {
+          "p50_ms": 481.05,
+          "p95_ms": 540.58,
+          "mean_ms": 491.69,
+          "min_ms": 453.65
+        },
+        "ms_per_question_warm": 23.188
+      },
+      "50_questions": {
+        "warm": {
+          "p50_ms": 654.56,
+          "p95_ms": 688.92,
+          "mean_ms": 652.13,
+          "min_ms": 605.96
+        },
+        "cold_schema": {
+          "p50_ms": 1828.15,
+          "p95_ms": 1906.2,
+          "mean_ms": 1829.9,
+          "min_ms": 1718.99
+        },
+        "ms_per_question_warm": 13.091
+      }
+    },
+    "16": {
+      "1_questions": {
+        "warm": {
+          "p50_ms": 129.74,
+          "p95_ms": 141.18,
+          "mean_ms": 129.39,
+          "min_ms": 116.51
+        },
+        "cold_schema": {
+          "p50_ms": 193.41,
+          "p95_ms": 208.29,
+          "mean_ms": 189.46,
+          "min_ms": 169.36
+        },
+        "ms_per_question_warm": 129.74
+      },
+      "5_questions": {
+        "warm": {
+          "p50_ms": 177.37,
+          "p95_ms": 196.51,
+          "mean_ms": 179.17,
+          "min_ms": 165.03
+        },
+        "cold_schema": {
+          "p50_ms": 322.07,
+          "p95_ms": 383.75,
+          "mean_ms": 333.65,
+          "min_ms": 303.66
+        },
+        "ms_per_question_warm": 35.474
+      },
+      "10_questions": {
+        "warm": {
+          "p50_ms": 246.37,
+          "p95_ms": 272.82,
+          "mean_ms": 251.67,
+          "min_ms": 232.41
+        },
+        "cold_schema": {
+          "p50_ms": 518.5,
+          "p95_ms": 573.19,
+          "mean_ms": 528.63,
+          "min_ms": 494.34
+        },
+        "ms_per_question_warm": 24.637
+      },
+      "50_questions": {
+        "warm": {
+          "p50_ms": 714.06,
+          "p95_ms": 751.28,
+          "mean_ms": 713.55,
+          "min_ms": 679.87
+        },
+        "cold_schema": {
+          "p50_ms": 1872.19,
+          "p95_ms": 1916.75,
+          "mean_ms": 1874.92,
+          "min_ms": 1831.37
+        },
+        "ms_per_question_warm": 14.281
+      }
+    }
+  },
+  "backend": "torch",
+  "throughput_10q": {
+    "states": 64,
+    "seconds": 11.673,
+    "decisions_per_s": 54.8,
+    "states_per_s": 5.5
+  },
+  "peak_rss_mb": 967.6
+}

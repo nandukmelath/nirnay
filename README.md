@@ -12,21 +12,36 @@ no text generation.** Drop-in compatible with the Laya / Jev question format and
 ![Latency per call: Nirnay vs Laya on a CPU-only workstation](assets/latency.png)
 
 *Measured on a 2014 dual-Xeon workstation with no GPU, using Laya's own latency workload. Laya re-reads the text for
-every question; Nirnay reads it once — 10 questions take 297 ms instead of 1.4 s, 50 take 0.7 s instead of 6.7 s.*
+every question; Nirnay reads it once — 10 questions take 0.23 s instead of 1.4 s, 50 take 0.65 s instead of 6.7 s.*
 
-* **Weights:** [huggingface.co/nandukmelath/nirnay](https://huggingface.co/nandukmelath/nirnay) (v2 default, v1 in `fast/`)
+* **Weights:** [huggingface.co/nandukmelath/nirnay](https://huggingface.co/nandukmelath/nirnay) (v3.1 default, v2 in `v2/`, v1 in `fast/`)
 * **Try it free in Colab (CPU runtime):** [notebooks/nirnay_demo.ipynb](https://colab.research.google.com/github/nandukmelath/nirnay/blob/main/notebooks/nirnay_demo.ipynb)
+
+## New in v3.1 (default)
+
+* **Request routing 0.404 → 0.875** ("is this a coding, math, data, writing, factual or small-talk request?"), now
+  ahead of every Laya checkpoint (best 0.659); the routing benchmark's own sources (gsm8k, mbpp) stay held out.
+* **SMS spam 0.670 → 0.790**, **emotion 0.550 → 0.595**, **toxicity 0.660 → 0.688**, **RAG relevance 0.655 → 0.680**.
+* **Against the best of Laya's three checkpoints: 5 wins, 2 ties, 5 losses** (v2: 3 / 1 / 8).
+* New training data: request routing (code, math, SQL, writing, trivia, small talk), short-message spam, request
+  safety (NVIDIA Aegis 2.0, content-harm wording), urgency asked a dozen ways, 8 more phrasings of every template.
+* Trade-offs: jailbreak 0.647 vs v2's 0.695 at the default threshold (ranking AUC 0.701 vs 0.713) and Banking77
+  0.598 vs 0.610. An unreleased v3 asked some safety questions about AI-assistant behaviour and learned to call every
+  harmful prompt a jailbreak (AUC 0.564); v3.1 asks about content harm only. Details: [REPORT.md](REPORT.md).
+* New: [`train/train_gpu.py`](train/train_gpu.py) trains the same model on any CUDA GPU (verified against the CPU
+  pipeline: identical answers on 64/64 test questions), and [`jobs/kaggle_gpu.py`](jobs/kaggle_gpu.py) runs it on
+  Kaggle's free T4 GPUs.
 
 ## Why Nirnay
 
 * **One read per call** — 1 question or 50 questions about the same text cost almost the same.
-* **No label limit** — every option is encoded separately: 77-way intent detection beats Laya (0.610 vs ≤0.492),
+* **No label limit** — every option is encoded separately: 77-way intent detection beats Laya (0.598 vs ≤0.492),
   and hundreds of labels work.
 * **Order-proof and deterministic** — reordering options can never change an answer (flip rate 0.000;
   Laya 0.14–0.19). Repeat calls are byte-identical; no decision changes across 1/4/8/16 CPU threads.
 * **Calibrated** — `answer_confidence` is a probability you can gate on.
-* **Adapts without training** — `learn()` with 16 examples per label: Banking77 0.610 → **0.853**, on a CPU.
-* **Small** — 527 MB (v2) or 155 MB (v1, 2.7x faster again); Laya's checkpoints are 614–804 MB.
+* **Adapts without training** — `learn()` with 16 examples per label: Banking77 0.598 → **0.840**, on a CPU.
+* **Small** — 527 MB (v3.1) or 155 MB (v1, about 2.4x faster again); Laya's checkpoints are 614–804 MB.
 
 ## Install
 
@@ -46,8 +61,9 @@ Requires Python 3.10+, PyTorch (CPU build is enough), `tokenizers`, `safetensors
 ```python
 import nirnay
 
-m = nirnay.load("nandukmelath/nirnay")                        # v2, most accurate
+m = nirnay.load("nandukmelath/nirnay")                        # v3.1, most accurate (default)
 # m = nirnay.load("nandukmelath/nirnay", subfolder="fast")    # v1, fastest
+# m = nirnay.load("nandukmelath/nirnay", subfolder="v2")      # the previous default, pinned
 
 r = m.predict(
     {"ticket": {"subject": "Payout failing", "body": "My payouts failed for 3 days, please help ASAP"}},
@@ -94,8 +110,8 @@ state (text / JSON)        question "<type> question: <instructions>"       opti
 The top of the network is a cross-encoder (option tokens read the state at every layer), but the state never reads
 the questions — so one state encoding serves every question, and options are independent of each other. Training
 minimises strictly proper scoring rules (log score, plus ranked probability score for ratings) with exact gradients.
-Layers 1-8 are frozen and pre-computed once, so only the top 4 layers + scorer train; v2 (bge-base) trained for 1.6
-epochs on 294k typed questions in one night on a CPU (two sockets, data-parallel).
+Layers 1-8 are frozen and pre-computed once, so only the top 4 layers + scorer train (29M parameters): v3.1
+(bge-base) continued from v2 for 1.25 epochs on 324k typed questions on a CPU (two sockets, data-parallel, ~9 hours).
 
 ## Benchmarks
 
@@ -103,29 +119,30 @@ Laya (`laya` 0.4.14 from PyPI, all three checkpoints, its own API and calibratio
 byte-identical cases: the 400-case suites of Laya's own application benchmark (seed 13) plus two held-out extras.
 Jev is a closed cloud API, so its column is the published third-party figure.
 
-| task | **Nirnay v2** | Nirnay v1 | Laya en | Laya ml | Laya td | Jev (published) |
-|---|---|---|---|---|---|---|
-| AG News (4 topics) | 0.925 | 0.882 | 0.950 | 0.935 | **0.953** | 0.910 |
-| DAIR emotion (6) | 0.550 | 0.515 | 0.593 | 0.537 | **0.600** | 0.480 |
-| Banking77 (77 intents) | **0.610** | 0.595 | 0.425 | 0.470 | 0.492 | 0.870 (72 labels, n=100) |
-| support triage (10 queues) | 0.415 | 0.417 | 0.502 | **0.540** | 0.505 | — |
-| Enron spam | 0.995 | 0.968 | **0.998** | **0.998** | 0.968 | — |
-| phishing | 0.975 | 0.948 | 0.980 | **0.993** | 0.940 | — |
-| jailbreak (toxic-chat) | 0.695 | 0.787 | 0.708 | **0.805** | 0.762 | — |
-| toxicity (toxic-chat) | **0.660** | 0.595 | 0.530 | 0.535 | 0.530 | — |
-| RAG passage relevance | 0.655 | 0.613 | 0.625 | **0.672** | 0.625 | — |
-| model routing (domain) | 0.404 | 0.446 | 0.639 | 0.441 | **0.659** | — |
-| SST-5 (5-level rating) | **0.492** | 0.425 | 0.352 | 0.292 | 0.470 | — |
-| SMS spam | 0.670 | 0.600 | **0.938** | 0.807 | 0.910 | 0.930 (independent) |
+| task | **Nirnay v3.1** | Nirnay v2 | Nirnay v1 | Laya en | Laya ml | Laya td | Jev (published) |
+|---|---|---|---|---|---|---|---|
+| AG News (4 topics) | 0.925 | 0.925 | 0.882 | 0.950 | 0.935 | **0.953** | 0.910 |
+| DAIR emotion (6) | 0.595 | 0.550 | 0.515 | 0.593 | 0.537 | **0.600** | 0.480 |
+| Banking77 (77 intents) | 0.598 | **0.610** | 0.595 | 0.425 | 0.470 | 0.492 | 0.870 (72 labels, n=100) |
+| support triage (10 queues) | 0.407 | 0.415 | 0.417 | 0.502 | **0.540** | 0.505 | — |
+| Enron spam | 0.995 | 0.995 | 0.968 | **0.998** | **0.998** | 0.968 | — |
+| phishing | 0.973 | 0.975 | 0.948 | 0.980 | **0.993** | 0.940 | — |
+| jailbreak (toxic-chat) | 0.647 | 0.695 | 0.787 | 0.708 | **0.805** | 0.762 | — |
+| toxicity (toxic-chat) | **0.688** | 0.660 | 0.595 | 0.530 | 0.535 | 0.530 | — |
+| RAG passage relevance | **0.680** | 0.655 | 0.613 | 0.625 | 0.672 | 0.625 | — |
+| model routing (domain) | **0.875** | 0.404 | 0.446 | 0.639 | 0.441 | 0.659 | — |
+| SST-5 (5-level rating) | 0.490 | **0.492** | 0.425 | 0.352 | 0.292 | 0.470 | — |
+| SMS spam | 0.790 | 0.670 | 0.600 | **0.938** | 0.807 | 0.910 | 0.930 (independent) |
 
-**Honest summary:** against the best of Laya's three checkpoints (picked per task, after the fact) Nirnay v2 wins
-3 tasks, ties 1 and loses 8; against Laya's default English checkpoint it wins 4, ties 2 and loses 6. It beats Jev's
-published AG News and emotion figures. Weak spots: SMS spam, model routing, support triage, jailbreak detection.
-Laya is a 421M-parameter model fully fine-tuned on GPUs; Nirnay trains 29M parameters on a CPU.
+**Honest summary:** against the best of Laya's three checkpoints (picked per task, after the fact) Nirnay v3.1 wins
+5 tasks (Banking77, toxicity, RAG relevance, model routing, SST-5), ties 2 (emotion, Enron spam) and loses 5 (AG
+News, support triage, phishing, jailbreak, SMS spam); against Laya's default English checkpoint it is also 5 / 2 / 5.
+It beats Jev's published AG News and emotion figures. Laya is a 421M-parameter model fully fine-tuned on GPUs; Nirnay
+trains 29M parameters on a CPU.
 
 | speed (warm p50) | 1 question | 10 questions | 50 questions |
 |---|---|---|---|
-| **Nirnay v2** | 146 ms | 297 ms | 696 ms |
+| **Nirnay v3.1** | 129 ms | 232 ms | 655 ms |
 | Nirnay v1 | 54 ms | 95 ms | 258 ms |
 | Laya at its fastest (any checkpoint, eager or its ONNX backend) | 159 ms | 1,389 ms | 6,730 ms |
 
@@ -139,21 +156,27 @@ python bench/suites.py                      # rebuild the 12 benchmark suites (L
 python train/build_data.py                  # typed-question training corpus from public datasets
 python train/precompute.py                  # frozen encoder over every unique text (keeps layer-8 states)
 python train/train_head.py                  # train + calibrate + export (NIRNAY_FUSION=deep NIRNAY_SPLIT=8)
-python bench/eval_suites.py nirnay:models/nirnay-v2       # accuracy, calibration, order-flip, determinism
+python train/train_gpu.py                   # or: the same model on a CUDA GPU, no precompute step
+python jobs/kaggle_gpu.py                   # or: on Kaggle's free T4 x2 (after `kaggle auth login`)
+python bench/eval_suites.py nirnay:models/nirnay-v31      # accuracy, calibration, order-flip, determinism
+python bench/suites_multi.py                # MASSIVE (51 languages) + SIB-200 (205 languages) suites
 python bench/eval_suites.py laya:laya                     # the same for Laya (pip install laya)
 python bench/bench_latency_nirnay.py && python bench/bench_latency_laya.py
 python bench/report.py                      # REPORT.md
 ```
 
-`jobs/overnight.cmd` is the exact two-socket pipeline that produced v2 (Windows); `docs/WORKSTATION_GUIDE.md` covers
+`jobs/v31.cmd` is the exact two-socket pipeline that produced v3.1 (`jobs/overnight.cmd` produced v2; Windows);
+`docs/WORKSTATION_GUIDE.md` covers
 the workstation setup. Environment variables of each script are documented at its top.
 
 ## Limitations
 
-* English only (bge-*-en backbones).
-* Wording matters for concepts it never trained on: "Is this ticket urgent?" works far better than "Does the customer
-  express urgency?". Probabilities still rank texts correctly, but the yes/no threshold moves with the wording —
-  fix it with a few labelled examples via `learn()`.
+* English only (bge-*-en backbones); a multilingual Nirnay is in training.
+* Wording still matters for concepts it rarely trained on. v3.1 learned urgency from a dozen phrasings: on a small
+  check "Does the customer express urgency?" gets 6 of 8 tickets right (v2: 4 of 8). Probabilities rank texts well
+  even when a phrasing moves the yes/no threshold; fix the threshold with a few labelled examples via `learn()`.
+* Jailbreak detection is zero-shot (jailbreak data is held out, as Laya does) and not a strength: at the default
+  threshold v3.1 over-flags some harmful but non-jailbreak prompts.
 * It decides; it does not reason step by step or write text.
 * Calibration is fitted on the training mixture; refit (or use `learn()`) on your own traffic before automated gating.
 
@@ -162,8 +185,9 @@ the workstation setup. Environment variables of each script are documented at it
 | path | what |
 |---|---|
 | `nirnay/` | the package: encoder, deep-fusion head, engine, few-shot memory, HTTP / MCP servers, CLI |
-| `train/` | data builder, encoder precompute, training (single process or DDP), encoder bake-off |
-| `bench/` | benchmark suites, Laya/Nirnay evaluation, latency, determinism, cold start, few-shot, report |
+| `train/` | data builder, encoder precompute, CPU training (single process or DDP), GPU training, encoder bake-off |
+| `bench/` | benchmark suites (incl. MASSIVE + SIB-200), Laya/Nirnay evaluation, latency, determinism, few-shot, report |
+| `kaggle/`, `jobs/` | the Kaggle GPU job and its driver; the exact Windows pipelines that produced each model |
 | `notebooks/` | the Colab demo |
 | `hf_space/` | a Gradio demo app: run it locally with `pip install gradio` and `python hf_space/app.py` (hosting it as a Hugging Face Space needs a PRO plan) |
 | `tools/` | chart generation |
@@ -173,12 +197,15 @@ the workstation setup. Environment variables of each script are documented at it
 
 Public datasets (listed in [`train/build_data.py`](train/build_data.py) and on the model card), converted to typed
 questions. Held out of training, mirroring Laya's own policy: dair-ai/emotion, mteb/banking77, lmsys/toxic-chat,
-gsm8k / mbpp, SetFit/sst5, ucirvine/sms_spam, XNLI, MASSIVE and all jailbreak datasets; any text appearing in a
-benchmark case was removed by exact match.
+gsm8k / mbpp, SetFit/sst5, ucirvine/sms_spam (and any text matching it), XNLI, MASSIVE, SIB-200 and all jailbreak /
+prompt-injection datasets; any text appearing in a benchmark case was removed by exact match. v3.1 adds CodeAlpaca,
+HumanEval, SVAMP, AQuA-RAT, MATH, sql-create-context, Gretel text-to-SQL, WritingPrompts, Dolly 15k, NQ-Open, SODA,
+India SMS spam and NVIDIA Aegis 2.0 (licences on the model card).
 
 Code and weights: Apache-2.0. Some training datasets carry research-only or non-commercial terms (for example MS MARCO,
 RACE, Yahoo Answers, Yelp reviews, Quora question pairs); check them before commercial use.
 
 Built on [BAAI/bge-base-en-v1.5](https://huggingface.co/BAAI/bge-base-en-v1.5) and
 [BAAI/bge-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5) (MIT). The benchmark cases reproduce the
-application benchmark of [Laya](https://huggingface.co/convaiinnovations/laya) ([source](https://github.com/NandhaKishorM/laya)).
+application benchmark of [Laya](https://huggingface.co/convaiinnovations/laya) ([source](https://github.com/NandhaKishorM/laya))
+by Nandakishor M (Convai Innovations), whose open model inspired this project.

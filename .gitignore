@@ -34,3 +34,8 @@ hf_release_card.md
 hf_space/nirnay/
 REPORT_overnight.md
 LAUNCH_POSTS.md
+
+# Kaggle staging / downloads and launch media (local only)
+kaggle_stage/
+kaggle_out/
+launch/

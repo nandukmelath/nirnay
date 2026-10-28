@@ -1,0 +1,177 @@
+{
+  "model": "nirnay:models\\nirnay-v31",
+  "label": "nirnay-v31",
+  "threads": 8,
+  "load_s": 10.8,
+  "timestamp": "2026-10-28 13:54:38",
+  "suites": {
+    "jev.ag_news": {
+      "n": 400,
+      "accuracy": 0.925,
+      "macro_f1": 0.9175,
+      "ece": 0.0283,
+      "brier": 0.1134,
+      "nll": 0.2043,
+      "ms_per_case": 70.14,
+      "meta": {
+        "note": "Jev 0.910",
+        "jev": "ag_news",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.emotion": {
+      "n": 400,
+      "accuracy": 0.595,
+      "macro_f1": 0.4476,
+      "ece": 0.1435,
+      "brier": 0.5898,
+      "nll": 1.2694,
+      "ms_per_case": 47.15,
+      "meta": {
+        "note": "Jev 0.480",
+        "jev": "emotion",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "jev.banking77_full": {
+      "n": 400,
+      "accuracy": 0.5975,
+      "macro_f1": 0.6506,
+      "ece": 0.1581,
+      "brier": 0.5883,
+      "nll": 2.1122,
+      "ms_per_case": 193.05,
+      "meta": {
+        "note": "77 labels | Jev 0.870 (72 labels)",
+        "jev": "banking77",
+        "laya_in_training": false,
+        "n_labels": 77
+      },
+      "order_flip_rate": 0.0
+    },
+    "app.support_triage": {
+      "n": 400,
+      "accuracy": 0.4075,
+      "macro_f1": 0.3435,
+      "ece": 0.0726,
+      "brier": 0.6985,
+      "nll": 1.5601,
+      "ms_per_case": 130.05,
+      "meta": {
+        "note": "10-way queue routing",
+        "laya_in_training": true
+      },
+      "order_flip_rate": 0.0
+    },
+    "app.email_spam": {
+      "n": 400,
+      "accuracy": 0.995,
+      "macro_f1": 0.995,
+      "ece": 0.0033,
+      "brier": 0.0065,
+      "nll": 0.0163,
+      "ms_per_case": 209.74,
+      "meta": {
+        "note": "enron spam",
+        "laya_in_training": true
+      }
+    },
+    "app.phishing": {
+      "n": 400,
+      "accuracy": 0.9725,
+      "macro_f1": 0.971,
+      "ece": 0.0208,
+      "brier": 0.0409,
+      "nll": 0.0649,
+      "ms_per_case": 229.5,
+      "meta": {
+        "note": "phishing emails",
+        "laya_in_training": true
+      }
+    },
+    "app.guardrails_jailbreak": {
+      "n": 400,
+      "accuracy": 0.6475,
+      "macro_f1": 0.5907,
+      "ece": 0.0423,
+      "brier": 0.4327,
+      "nll": 0.624,
+      "ms_per_case": 86.48,
+      "meta": {
+        "note": "toxic-chat jailbreaking (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.moderation_toxicity": {
+      "n": 400,
+      "accuracy": 0.6875,
+      "macro_f1": 0.6779,
+      "ece": 0.1042,
+      "brier": 0.412,
+      "nll": 0.6324,
+      "ms_per_case": 80.85,
+      "meta": {
+        "note": "toxic-chat toxicity (held out)",
+        "laya_in_training": false
+      }
+    },
+    "app.rag_relevance": {
+      "n": 400,
+      "accuracy": 0.68,
+      "macro_f1": 0.6764,
+      "ece": 0.05,
+      "brier": 0.412,
+      "nll": 0.5982,
+      "ms_per_case": 93.82,
+      "meta": {
+        "note": "MS MARCO relevance",
+        "laya_in_training": true
+      }
+    },
+    "app.model_routing_domain": {
+      "n": 399,
+      "accuracy": 0.8747,
+      "macro_f1": 0.9148,
+      "ece": 0.034,
+      "brier": 0.167,
+      "nll": 0.315,
+      "ms_per_case": 81.53,
+      "meta": {
+        "note": "gsm8k/mbpp/ag_news -> domain",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "extra.sst5": {
+      "n": 400,
+      "accuracy": 0.49,
+      "macro_f1": 0.4619,
+      "ece": 0.043,
+      "brier": 0.6133,
+      "nll": 1.1168,
+      "mae": 0.6174,
+      "ms_per_case": 53.81,
+      "meta": {
+        "note": "ordinal 5-level (score type, held out)",
+        "laya_in_training": false
+      }
+    },
+    "extra.sms_spam": {
+      "n": 400,
+      "accuracy": 0.79,
+      "macro_f1": 0.7845,
+      "ece": 0.1374,
+      "brier": 0.3378,
+      "nll": 0.7883,
+      "ms_per_case": 54.77,
+      "meta": {
+        "note": "SMS spam (held out) | independent Jev 0.930",
+        "laya_in_training": false
+      }
+    }
+  },
+  "determinism_repeat_identical": 1.0,
+  "determinism_n": 300
+}
