@@ -1,0 +1,89 @@
+{
+  "suite": "jev.banking77_full",
+  "models": {
+    "laya-typed-decisions": {
+      "orders": 6,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n": 400,
+      "accuracy_by_order": {
+        "0": 0.4925,
+        "1": 0.435,
+        "2": 0.5125,
+        "3": 0.45,
+        "4": 0.465,
+        "5": 0.6025
+      },
+      "accuracy_mean": 0.4929,
+      "accuracy_min": 0.435,
+      "accuracy_max": 0.6025,
+      "answer_changed_vs_own_order": 0.3885,
+      "same_answer_in_every_order": 0.2675,
+      "accuracy_probs_averaged_over_orders": 0.5525,
+      "right_in_any_order": 0.695,
+      "right_in_every_order": 0.2275
+    },
+    "nirnay-v2": {
+      "orders": 6,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n": 400,
+      "accuracy_by_order": {
+        "0": 0.61,
+        "1": 0.61,
+        "2": 0.61,
+        "3": 0.61,
+        "4": 0.61,
+        "5": 0.61
+      },
+      "accuracy_mean": 0.61,
+      "accuracy_min": 0.61,
+      "accuracy_max": 0.61,
+      "answer_changed_vs_own_order": 0.0,
+      "same_answer_in_every_order": 1.0,
+      "accuracy_probs_averaged_over_orders": 0.61,
+      "right_in_any_order": 0.61,
+      "right_in_every_order": 0.61
+    },
+    "nirnay-v31": {
+      "orders": 6,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n": 400,
+      "accuracy_by_order": {
+        "0": 0.5975,
+        "1": 0.5975,
+        "2": 0.5975,
+        "3": 0.5975,
+        "4": 0.5975,
+        "5": 0.5975
+      },
+      "accuracy_mean": 0.5975,
+      "accuracy_min": 0.5975,
+      "accuracy_max": 0.5975,
+      "answer_changed_vs_own_order": 0.0,
+      "same_answer_in_every_order": 1.0,
+      "accuracy_probs_averaged_over_orders": 0.5975,
+      "right_in_any_order": 0.5975,
+      "right_in_every_order": 0.5975
+    }
+  }
+}

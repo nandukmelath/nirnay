@@ -73,6 +73,49 @@ def tally(mine, theirs):
     return w, t, l
 
 
+def label_coverage():
+    """Choice suites whose cases cover fewer labels than every question offers: (suite, labels in gold, offered)."""
+    path = os.path.join(HERE, "data", "suites.jsonl")
+    if not os.path.exists(path):
+        return []
+    gold, offered, n = {}, {}, {}
+    for line in open(path, encoding="utf-8"):
+        c = json.loads(line)
+        q = next(iter(c["questions"].values()))
+        if q["type"] == "choice":
+            gold.setdefault(c["suite"], set()).add(c["gold"])
+            offered[c["suite"]] = len(q["criteria"])
+            n[c["suite"]] = n.get(c["suite"], 0) + 1
+    return [(s, n[s], len(g), offered[s]) for s, g in gold.items() if len(g) < offered[s]]
+
+
+def order_section():
+    d = jload("order_check_jev.banking77_full.json")
+    if not d:
+        return []
+    lab = dict(LAYA)
+    lab.update({k: v[0] for k, v in MODELS.items()})
+    L = ["## Option-order check (Banking77, the options in several fixed orders)", "",
+         "The same 400 cases with the 77 options in the suite's own (alphabetical) order and in 5 random orders "
+         "(`random.Random(seed)`, seeds 1-5; one order for all cases), through each model's public batch API "
+         "(`bench/order_check.py`; per-order probabilities in `bench/results/order_check/`). These cases are Laya's "
+         "benchmark rows, the first 400 test messages, so they cover 10 of the 77 intents (40 messages each).", "",
+         "| model | orders | accuracy by order | mean | same answer in every order | probabilities averaged over "
+         "the orders | right in at least one order | right in every order |", "|---|---|---|---|---|---|---|---|"]
+    for k in sorted(d["models"], key=lambda k: (not k.startswith("nirnay"), k)):
+        m = d["models"][k]
+        if m["accuracy_min"] == m["accuracy_max"]:
+            by = "%s in every order" % fmt(m["accuracy_min"])
+        else:
+            by = "%s to %s (own order %s)" % (fmt(m["accuracy_min"]), fmt(m["accuracy_max"]),
+                                             fmt(m["accuracy_by_order"].get("0")))
+        L.append("| %s | %d | %s | %s | %.1f%% | %s | %s | %s |" % (
+            lab.get(k, k), m["orders"], by, fmt(m["accuracy_mean"]), 100 * m["same_answer_in_every_order"],
+            fmt(m["accuracy_probs_averaged_over_orders"]), fmt(m["right_in_any_order"]), fmt(m["right_in_every_order"])))
+    L.append("")
+    return L
+
+
 def multilingual_section(keys):
     """MASSIVE + SIB-200 per model; per-language MASSIVE table; per-language wins vs Laya-multilingual."""
     res = {k: jload("suites_multi__nirnay__%s.json" % k) for k in keys}
@@ -168,6 +211,10 @@ def main():
         w3, t3, l3 = tally(heads, [acc(nir[k], s) for s in ORDER])
         L.append("%s vs %s: %d better, %d same, %d worse." % (hl, lab, w3, t3, l3))
     L.append("")
+    for s, n, k, offered in label_coverage():
+        L.append("`%s`: the %d cases cover %d of the %d labels offered; every label is offered in every question."
+                 % (s, n, k, offered))
+    L.append("")
 
     # ------------------------------------------------------------- calibration
     L += ["## Calibration (ECE, lower is better)", "",
@@ -201,6 +248,7 @@ def main():
         " | ".join(fmt((cs.get("nirnay:" + k) or {}).get("first_answer_s"), 1) for k, _ in NIR),
         " | ".join(fmt((cs.get("laya:" + k) or {}).get("first_answer_s"), 1) for k, _ in LAYA)))
     L.append("")
+    L += order_section()
 
     # ------------------------------------------------------------- latency
     ll, lo = jload("laya_latency.json"), jload("laya_latency_onnx.json")

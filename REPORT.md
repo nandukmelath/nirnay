@@ -1,6 +1,6 @@
 # Nirnay vs Laya vs Jev — measured on this machine
 
-Generated 2026-10-29 12:48. Hardware: HP Z840, 2x Xeon E5-2630 v3 (16 cores / 32 threads, AVX2, no AVX-512), 128 GB DDR4, CPU only (Quadro K2200 unused).
+Generated 2026-10-29 22:38. Hardware: HP Z840, 2x Xeon E5-2630 v3 (16 cores / 32 threads, AVX2, no AVX-512), 128 GB DDR4, CPU only (Quadro K2200 unused).
 
 Laya was installed from PyPI (`laya` 0.4.14) with its three published checkpoints and run through its own API with its shipped calibration. Jev is a closed, paid cloud API: it cannot run on this machine, so its column is the third-party published figure where one exists.
 
@@ -34,6 +34,9 @@ Nirnay v3.1 vs Nirnay v3: 2 better, 9 same, 1 worse.
 Nirnay v3.1 vs Nirnay v2: 5 better, 4 same, 3 worse.
 Nirnay v3.1 vs Nirnay v1 (fast): 9 better, 1 same, 2 worse.
 
+`jev.banking77_full`: the 400 cases cover 10 of the 77 labels offered; every label is offered in every question.
+`app.model_routing_domain`: the 399 cases cover 3 of the 6 labels offered; every label is offered in every question.
+
 ## Calibration (ECE, lower is better)
 
 | task | Nirnay v3.1 | Nirnay multilingual | Nirnay v3 | Nirnay v2 | Nirnay v1 (fast) | best Laya |
@@ -60,6 +63,16 @@ Nirnay v3.1 vs Nirnay v1 (fast): 9 better, 1 same, 2 worse.
 | byte-identical answers across 1/4/8/16 threads | 0.987 | 0.970 | 0.990 | 0.967 | 0.987 | not measured | not measured | not measured |
 | decisions changed across 1/4/8/16 threads | 0 (max prob. diff 0.0001) | 0 (max prob. diff 0.0001) | 0 (max prob. diff 0.0001) | 0 (max prob. diff 0.0001) | 0 (max prob. diff 0.0001) | not measured | not measured | not measured |
 | cold start: new process -> first answer (s) | — | — | — | 7.4 | 7.1 | 11.7 | 15.8 | 11.8 |
+
+## Option-order check (Banking77, the options in several fixed orders)
+
+The same 400 cases with the 77 options in the suite's own (alphabetical) order and in 5 random orders (`random.Random(seed)`, seeds 1-5; one order for all cases), through each model's public batch API (`bench/order_check.py`; per-order probabilities in `bench/results/order_check/`). These cases are Laya's benchmark rows, the first 400 test messages, so they cover 10 of the 77 intents (40 messages each).
+
+| model | orders | accuracy by order | mean | same answer in every order | probabilities averaged over the orders | right in at least one order | right in every order |
+|---|---|---|---|---|---|---|---|
+| Nirnay v2 | 6 | 0.610 in every order | 0.610 | 100.0% | 0.610 | 0.610 | 0.610 |
+| Nirnay v3.1 | 6 | 0.598 in every order | 0.598 | 100.0% | 0.598 | 0.598 | 0.598 |
+| laya-td | 6 | 0.435 to 0.603 (own order 0.492) | 0.493 | 26.8% | 0.552 | 0.695 | 0.228 |
 
 ## Latency on this CPU (Laya's own workload: a support ticket, mixed choice / yes-no questions)
 

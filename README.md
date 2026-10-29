@@ -41,7 +41,9 @@ every question; Nirnay reads it once — 10 questions take 0.23 s instead of 1.4
 * **No label limit** — every option is encoded separately: 77-way intent detection beats Laya (0.598 vs ≤0.492),
   and hundreds of labels work.
 * **Order-proof and deterministic** — reordering options can never change an answer (flip rate 0.000;
-  Laya 0.14–0.19). Repeat calls are byte-identical; no decision changes across 1/4/8/16 CPU threads.
+  Laya 0.14–0.19, and its Banking77 accuracy ranges from 0.435 to 0.603 with the option order alone; see
+  [the option-order check](#option-order-check)). Repeat calls are byte-identical; no decision changes across
+  1/4/8/16 CPU threads.
 * **Calibrated** — `answer_confidence` is a probability you can gate on.
 * **Adapts without training** — `learn()` with 16 examples per label: Banking77 0.598 → **0.840**, on a CPU.
 * **Small** — 527 MB (v3.1) or 155 MB (v1, about 2.4x faster again); Laya's checkpoints are 614–804 MB.
@@ -126,7 +128,7 @@ Jev is a closed cloud API, so its column is the published third-party figure.
 |---|---|---|---|---|---|---|---|
 | AG News (4 topics) | 0.925 | 0.925 | 0.882 | 0.950 | 0.935 | **0.953** | 0.910 |
 | DAIR emotion (6) | 0.595 | 0.550 | 0.515 | 0.593 | 0.537 | **0.600** | 0.480 |
-| Banking77 (77 intents) | 0.598 | **0.610** | 0.595 | 0.425 | 0.470 | 0.492 | 0.870 (72 labels, n=100) |
+| Banking77 (77 labels offered) | 0.598 | **0.610** | 0.595 | 0.425 | 0.470 | 0.492 | 0.870 (72 labels, n=100) |
 | support triage (10 queues) | 0.407 | 0.415 | 0.417 | 0.502 | **0.540** | 0.505 | — |
 | Enron spam | 0.995 | 0.995 | 0.968 | **0.998** | **0.998** | 0.968 | — |
 | phishing | 0.973 | 0.975 | 0.948 | 0.980 | **0.993** | 0.940 | — |
@@ -136,6 +138,9 @@ Jev is a closed cloud API, so its column is the published third-party figure.
 | model routing (domain) | **0.875** | 0.404 | 0.446 | 0.639 | 0.441 | 0.659 | — |
 | SST-5 (5-level rating) | 0.490 | **0.492** | 0.425 | 0.352 | 0.292 | 0.470 | — |
 | SMS spam | 0.790 | 0.670 | 0.600 | **0.938** | 0.807 | 0.910 | 0.930 (independent) |
+
+Banking77's cases are the first 400 test messages (as in Laya's benchmark), which cover 10 of the 77 intents; all 77
+are offered in every question. The routing cases cover 3 of its 6 domains.
 
 **Honest summary:** against the best of Laya's three checkpoints (picked per task, after the fact) Nirnay v3.1 wins
 5 tasks (Banking77, toxicity, RAG relevance, model routing, SST-5), ties 2 (emotion, Enron spam) and loses 5 (AG
@@ -148,6 +153,29 @@ trains 29M parameters on a CPU.
 | **Nirnay v3.1** | 129 ms | 232 ms | 655 ms |
 | Nirnay v1 | 54 ms | 95 ms | 258 ms |
 | Laya at its fastest (any checkpoint, eager or its ONNX backend) | 159 ms | 1,389 ms | 6,730 ms |
+
+### Option-order check
+
+Does Laya's order sensitivity explain the Banking77 gap? The same 400 cases, with the 77 options in the suite's own
+(alphabetical) order and in 5 random orders, each order used for every case:
+
+| Banking77, 6 option orders | accuracy by order | same answer in all 6 orders | probabilities averaged over the 6 orders | right in at least one order |
+|---|---|---|---|---|
+| **Nirnay v2** | 0.610 in every order | 100% | 0.610 | 0.610 |
+| Nirnay v3.1 | 0.598 in every order | 100% | 0.598 | 0.598 |
+| Laya td (its best checkpoint on this task) | 0.435 to 0.603 (mean 0.493; own order 0.492) | 26.8% | 0.552 | 0.695 |
+
+In its luckiest order Laya nearly matches Nirnay, and averaging its probabilities over the six orders (6x the compute)
+closes about half the gap; choosing the lucky order would need the labels. Each of the 10 intents is 10% of the
+score: in one order Laya's accuracy on "exchange rate" alone fell from 0.975 to 0.200. Reproduce:
+
+```bash
+python bench/order_check.py laya:laya-typed-decisions 0,1,2,3,4,5
+python bench/order_check.py nirnay:models/nirnay-v2 0,1,2,3,4,5
+python bench/order_check.py --summary
+```
+
+Per-order probabilities for every case: [`bench/results/order_check/`](bench/results/order_check).
 
 Every measurement (calibration, determinism, footprint, few-shot, ablations): [REPORT.md](REPORT.md); raw results in
 [`bench/results/`](bench/results).
