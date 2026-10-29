@@ -1,0 +1,3902 @@
+{
+  "model": "nirnay:models\\nirnay-v31",
+  "label": "nirnay-v31",
+  "threads": 8,
+  "load_s": 23.1,
+  "timestamp": "2026-10-29 10:09:11",
+  "suites": {
+    "massive.ta": {
+      "n": 80,
+      "accuracy": 0.0125,
+      "macro_f1": 0.0025,
+      "ece": 0.3929,
+      "brier": 1.2092,
+      "nll": 11.4703,
+      "ms_per_case": 118.77,
+      "meta": {
+        "note": "MASSIVE ta, 60 intents (held out)",
+        "lang": "ta",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.is": {
+      "n": 80,
+      "accuracy": 0.0875,
+      "macro_f1": 0.0841,
+      "ece": 0.4111,
+      "brier": 1.224,
+      "nll": 12.3232,
+      "ms_per_case": 113.1,
+      "meta": {
+        "note": "MASSIVE is, 60 intents (held out)",
+        "lang": "is",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.pl": {
+      "n": 80,
+      "accuracy": 0.2,
+      "macro_f1": 0.1744,
+      "ece": 0.1941,
+      "brier": 0.9926,
+      "nll": 9.1017,
+      "ms_per_case": 118.38,
+      "meta": {
+        "note": "MASSIVE pl, 60 intents (held out)",
+        "lang": "pl",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.zh-CN": {
+      "n": 80,
+      "accuracy": 0.0625,
+      "macro_f1": 0.045,
+      "ece": 0.3694,
+      "brier": 1.1757,
+      "nll": 9.6697,
+      "ms_per_case": 105.78,
+      "meta": {
+        "note": "MASSIVE zh-CN, 60 intents (held out)",
+        "lang": "zh-CN",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.el": {
+      "n": 80,
+      "accuracy": 0.0125,
+      "macro_f1": 0.0139,
+      "ece": 0.3663,
+      "brier": 1.1826,
+      "nll": 12.685,
+      "ms_per_case": 131.07,
+      "meta": {
+        "note": "MASSIVE el, 60 intents (held out)",
+        "lang": "el",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ru": {
+      "n": 80,
+      "accuracy": 0.0875,
+      "macro_f1": 0.0582,
+      "ece": 0.257,
+      "brier": 1.0818,
+      "nll": 8.4678,
+      "ms_per_case": 136.07,
+      "meta": {
+        "note": "MASSIVE ru, 60 intents (held out)",
+        "lang": "ru",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.te": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.3429,
+      "brier": 1.1631,
+      "nll": 11.9208,
+      "ms_per_case": 105.06,
+      "meta": {
+        "note": "MASSIVE te, 60 intents (held out)",
+        "lang": "te",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.cy": {
+      "n": 80,
+      "accuracy": 0.0125,
+      "macro_f1": 0.0147,
+      "ece": 0.4889,
+      "brier": 1.3078,
+      "nll": 13.1137,
+      "ms_per_case": 123.51,
+      "meta": {
+        "note": "MASSIVE cy, 60 intents (held out)",
+        "lang": "cy",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.he": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.4181,
+      "brier": 1.2304,
+      "nll": 13.5134,
+      "ms_per_case": 150.56,
+      "meta": {
+        "note": "MASSIVE he, 60 intents (held out)",
+        "lang": "he",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.de": {
+      "n": 80,
+      "accuracy": 0.1375,
+      "macro_f1": 0.1329,
+      "ece": 0.31,
+      "brier": 1.0674,
+      "nll": 6.849,
+      "ms_per_case": 112.26,
+      "meta": {
+        "note": "MASSIVE de, 60 intents (held out)",
+        "lang": "de",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.af": {
+      "n": 80,
+      "accuracy": 0.125,
+      "macro_f1": 0.1329,
+      "ece": 0.3114,
+      "brier": 1.0964,
+      "nll": 8.1725,
+      "ms_per_case": 130.25,
+      "meta": {
+        "note": "MASSIVE af, 60 intents (held out)",
+        "lang": "af",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ml": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.3284,
+      "brier": 1.1625,
+      "nll": 15.4969,
+      "ms_per_case": 114.87,
+      "meta": {
+        "note": "MASSIVE ml, 60 intents (held out)",
+        "lang": "ml",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.sl": {
+      "n": 80,
+      "accuracy": 0.0625,
+      "macro_f1": 0.0464,
+      "ece": 0.2698,
+      "brier": 1.0963,
+      "nll": 7.4967,
+      "ms_per_case": 111.81,
+      "meta": {
+        "note": "MASSIVE sl, 60 intents (held out)",
+        "lang": "sl",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.vi": {
+      "n": 80,
+      "accuracy": 0.0625,
+      "macro_f1": 0.0833,
+      "ece": 0.4825,
+      "brier": 1.2674,
+      "nll": 10.1827,
+      "ms_per_case": 108.12,
+      "meta": {
+        "note": "MASSIVE vi, 60 intents (held out)",
+        "lang": "vi",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.mn": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.4694,
+      "brier": 1.2858,
+      "nll": 12.919,
+      "ms_per_case": 136.27,
+      "meta": {
+        "note": "MASSIVE mn, 60 intents (held out)",
+        "lang": "mn",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.tl": {
+      "n": 80,
+      "accuracy": 0.125,
+      "macro_f1": 0.1025,
+      "ece": 0.3429,
+      "brier": 1.1307,
+      "nll": 8.6967,
+      "ms_per_case": 126.99,
+      "meta": {
+        "note": "MASSIVE tl, 60 intents (held out)",
+        "lang": "tl",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.it": {
+      "n": 80,
+      "accuracy": 0.1,
+      "macro_f1": 0.1054,
+      "ece": 0.328,
+      "brier": 1.0719,
+      "nll": 4.8789,
+      "ms_per_case": 111.48,
+      "meta": {
+        "note": "MASSIVE it, 60 intents (held out)",
+        "lang": "it",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.jv": {
+      "n": 80,
+      "accuracy": 0.0625,
+      "macro_f1": 0.0791,
+      "ece": 0.3969,
+      "brier": 1.1794,
+      "nll": 9.777,
+      "ms_per_case": 109.52,
+      "meta": {
+        "note": "MASSIVE jv, 60 intents (held out)",
+        "lang": "jv",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.sq": {
+      "n": 80,
+      "accuracy": 0.0625,
+      "macro_f1": 0.0697,
+      "ece": 0.3573,
+      "brier": 1.1558,
+      "nll": 9.1159,
+      "ms_per_case": 112.19,
+      "meta": {
+        "note": "MASSIVE sq, 60 intents (held out)",
+        "lang": "sq",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.fa": {
+      "n": 80,
+      "accuracy": 0.0125,
+      "macro_f1": 0.0114,
+      "ece": 0.2686,
+      "brier": 1.1207,
+      "nll": 10.3512,
+      "ms_per_case": 125.58,
+      "meta": {
+        "note": "MASSIVE fa, 60 intents (held out)",
+        "lang": "fa",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.nb": {
+      "n": 80,
+      "accuracy": 0.125,
+      "macro_f1": 0.1652,
+      "ece": 0.2577,
+      "brier": 1.0303,
+      "nll": 7.1135,
+      "ms_per_case": 116.58,
+      "meta": {
+        "note": "MASSIVE nb, 60 intents (held out)",
+        "lang": "nb",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.km": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.3488,
+      "brier": 1.2043,
+      "nll": 12.8041,
+      "ms_per_case": 114.12,
+      "meta": {
+        "note": "MASSIVE km, 60 intents (held out)",
+        "lang": "km",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.th": {
+      "n": 80,
+      "accuracy": 0.0125,
+      "macro_f1": 0.0069,
+      "ece": 0.3333,
+      "brier": 1.1735,
+      "nll": 11.6281,
+      "ms_per_case": 108.43,
+      "meta": {
+        "note": "MASSIVE th, 60 intents (held out)",
+        "lang": "th",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ja": {
+      "n": 80,
+      "accuracy": 0.1,
+      "macro_f1": 0.104,
+      "ece": 0.3019,
+      "brier": 1.1277,
+      "nll": 8.6408,
+      "ms_per_case": 111.87,
+      "meta": {
+        "note": "MASSIVE ja, 60 intents (held out)",
+        "lang": "ja",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.hi": {
+      "n": 80,
+      "accuracy": 0.0375,
+      "macro_f1": 0.0242,
+      "ece": 0.4312,
+      "brier": 1.2664,
+      "nll": 10.5644,
+      "ms_per_case": 120.39,
+      "meta": {
+        "note": "MASSIVE hi, 60 intents (held out)",
+        "lang": "hi",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.id": {
+      "n": 80,
+      "accuracy": 0.1375,
+      "macro_f1": 0.1465,
+      "ece": 0.3303,
+      "brier": 1.1138,
+      "nll": 9.3342,
+      "ms_per_case": 133.11,
+      "meta": {
+        "note": "MASSIVE id, 60 intents (held out)",
+        "lang": "id",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.kn": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.3483,
+      "brier": 1.1811,
+      "nll": 13.3129,
+      "ms_per_case": 107.99,
+      "meta": {
+        "note": "MASSIVE kn, 60 intents (held out)",
+        "lang": "kn",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.fi": {
+      "n": 80,
+      "accuracy": 0.0625,
+      "macro_f1": 0.0887,
+      "ece": 0.4387,
+      "brier": 1.24,
+      "nll": 10.6499,
+      "ms_per_case": 112.63,
+      "meta": {
+        "note": "MASSIVE fi, 60 intents (held out)",
+        "lang": "fi",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ur": {
+      "n": 80,
+      "accuracy": 0.0875,
+      "macro_f1": 0.0045,
+      "ece": 0.6839,
+      "brier": 1.4888,
+      "nll": 11.3686,
+      "ms_per_case": 133.29,
+      "meta": {
+        "note": "MASSIVE ur, 60 intents (held out)",
+        "lang": "ur",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.my": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.3216,
+      "brier": 1.1728,
+      "nll": 13.4199,
+      "ms_per_case": 107.68,
+      "meta": {
+        "note": "MASSIVE my, 60 intents (held out)",
+        "lang": "my",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.lv": {
+      "n": 80,
+      "accuracy": 0.0125,
+      "macro_f1": 0.0139,
+      "ece": 0.3917,
+      "brier": 1.2059,
+      "nll": 9.4368,
+      "ms_per_case": 118.92,
+      "meta": {
+        "note": "MASSIVE lv, 60 intents (held out)",
+        "lang": "lv",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.fr": {
+      "n": 80,
+      "accuracy": 0.1875,
+      "macro_f1": 0.1524,
+      "ece": 0.3008,
+      "brier": 1.0382,
+      "nll": 5.5648,
+      "ms_per_case": 113.61,
+      "meta": {
+        "note": "MASSIVE fr, 60 intents (held out)",
+        "lang": "fr",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ko": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.3236,
+      "brier": 1.1642,
+      "nll": 13.1773,
+      "ms_per_case": 129.3,
+      "meta": {
+        "note": "MASSIVE ko, 60 intents (held out)",
+        "lang": "ko",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.sw": {
+      "n": 80,
+      "accuracy": 0.0625,
+      "macro_f1": 0.0238,
+      "ece": 0.4107,
+      "brier": 1.22,
+      "nll": 12.5041,
+      "ms_per_case": 112.03,
+      "meta": {
+        "note": "MASSIVE sw, 60 intents (held out)",
+        "lang": "sw",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.sv": {
+      "n": 80,
+      "accuracy": 0.1,
+      "macro_f1": 0.1236,
+      "ece": 0.3081,
+      "brier": 1.1259,
+      "nll": 7.5861,
+      "ms_per_case": 107.81,
+      "meta": {
+        "note": "MASSIVE sv, 60 intents (held out)",
+        "lang": "sv",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.nl": {
+      "n": 80,
+      "accuracy": 0.1875,
+      "macro_f1": 0.1208,
+      "ece": 0.2606,
+      "brier": 1.017,
+      "nll": 6.7478,
+      "ms_per_case": 116.89,
+      "meta": {
+        "note": "MASSIVE nl, 60 intents (held out)",
+        "lang": "nl",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.da": {
+      "n": 80,
+      "accuracy": 0.15,
+      "macro_f1": 0.1217,
+      "ece": 0.2942,
+      "brier": 1.0957,
+      "nll": 8.0293,
+      "ms_per_case": 109.82,
+      "meta": {
+        "note": "MASSIVE da, 60 intents (held out)",
+        "lang": "da",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ar": {
+      "n": 80,
+      "accuracy": 0.05,
+      "macro_f1": 0.0459,
+      "ece": 0.3543,
+      "brier": 1.1417,
+      "nll": 10.2745,
+      "ms_per_case": 117.29,
+      "meta": {
+        "note": "MASSIVE ar, 60 intents (held out)",
+        "lang": "ar",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ms": {
+      "n": 80,
+      "accuracy": 0.05,
+      "macro_f1": 0.0738,
+      "ece": 0.3692,
+      "brier": 1.1922,
+      "nll": 11.935,
+      "ms_per_case": 125.98,
+      "meta": {
+        "note": "MASSIVE ms, 60 intents (held out)",
+        "lang": "ms",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.en": {
+      "n": 80,
+      "accuracy": 0.525,
+      "macro_f1": 0.5335,
+      "ece": 0.183,
+      "brier": 0.6527,
+      "nll": 2.238,
+      "ms_per_case": 106.01,
+      "meta": {
+        "note": "MASSIVE en, 60 intents (held out)",
+        "lang": "en",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.am": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.3374,
+      "brier": 1.168,
+      "nll": 14.5106,
+      "ms_per_case": 106.53,
+      "meta": {
+        "note": "MASSIVE am, 60 intents (held out)",
+        "lang": "am",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.pt": {
+      "n": 80,
+      "accuracy": 0.1125,
+      "macro_f1": 0.1019,
+      "ece": 0.336,
+      "brier": 1.0607,
+      "nll": 7.4846,
+      "ms_per_case": 113.56,
+      "meta": {
+        "note": "MASSIVE pt, 60 intents (held out)",
+        "lang": "pt",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ka": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.4442,
+      "brier": 1.2766,
+      "nll": 12.1206,
+      "ms_per_case": 124.39,
+      "meta": {
+        "note": "MASSIVE ka, 60 intents (held out)",
+        "lang": "ka",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.ro": {
+      "n": 80,
+      "accuracy": 0.15,
+      "macro_f1": 0.131,
+      "ece": 0.2916,
+      "brier": 1.069,
+      "nll": 6.9426,
+      "ms_per_case": 112.41,
+      "meta": {
+        "note": "MASSIVE ro, 60 intents (held out)",
+        "lang": "ro",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.tr": {
+      "n": 80,
+      "accuracy": 0.1125,
+      "macro_f1": 0.1087,
+      "ece": 0.2422,
+      "brier": 1.0669,
+      "nll": 10.066,
+      "ms_per_case": 110.3,
+      "meta": {
+        "note": "MASSIVE tr, 60 intents (held out)",
+        "lang": "tr",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.hu": {
+      "n": 80,
+      "accuracy": 0.1375,
+      "macro_f1": 0.1082,
+      "ece": 0.2608,
+      "brier": 1.0744,
+      "nll": 7.7855,
+      "ms_per_case": 114.28,
+      "meta": {
+        "note": "MASSIVE hu, 60 intents (held out)",
+        "lang": "hu",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.zh-TW": {
+      "n": 80,
+      "accuracy": 0.0875,
+      "macro_f1": 0.0523,
+      "ece": 0.3604,
+      "brier": 1.167,
+      "nll": 11.2989,
+      "ms_per_case": 111.12,
+      "meta": {
+        "note": "MASSIVE zh-TW, 60 intents (held out)",
+        "lang": "zh-TW",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.bn": {
+      "n": 80,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "ece": 0.4184,
+      "brier": 1.2209,
+      "nll": 10.5897,
+      "ms_per_case": 125.89,
+      "meta": {
+        "note": "MASSIVE bn, 60 intents (held out)",
+        "lang": "bn",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.hy": {
+      "n": 80,
+      "accuracy": 0.0375,
+      "macro_f1": 0.0041,
+      "ece": 0.6419,
+      "brier": 1.4778,
+      "nll": 17.9011,
+      "ms_per_case": 119.48,
+      "meta": {
+        "note": "MASSIVE hy, 60 intents (held out)",
+        "lang": "hy",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.es": {
+      "n": 80,
+      "accuracy": 0.1,
+      "macro_f1": 0.0944,
+      "ece": 0.2994,
+      "brier": 1.0902,
+      "nll": 6.7257,
+      "ms_per_case": 108.26,
+      "meta": {
+        "note": "MASSIVE es, 60 intents (held out)",
+        "lang": "es",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "massive.az": {
+      "n": 80,
+      "accuracy": 0.05,
+      "macro_f1": 0.0148,
+      "ece": 0.3672,
+      "brier": 1.152,
+      "nll": 9.6774,
+      "ms_per_case": 121.37,
+      "meta": {
+        "note": "MASSIVE az, 60 intents (held out)",
+        "lang": "az",
+        "laya_in_training": false,
+        "n_labels": 60
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ace_Arab": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.1361,
+      "ece": 0.2074,
+      "brier": 0.897,
+      "nll": 2.0785,
+      "ms_per_case": 78.58,
+      "meta": {
+        "note": "SIB-200 ace_Arab, 7 topics (held out)",
+        "lang": "ace_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ace_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3099,
+      "ece": 0.2592,
+      "brier": 0.6055,
+      "nll": 1.4222,
+      "ms_per_case": 69.53,
+      "meta": {
+        "note": "SIB-200 ace_Latn, 7 topics (held out)",
+        "lang": "ace_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.acm_Arab": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.1154,
+      "ece": 0.2484,
+      "brier": 0.8497,
+      "nll": 2.07,
+      "ms_per_case": 105.88,
+      "meta": {
+        "note": "SIB-200 acm_Arab, 7 topics (held out)",
+        "lang": "acm_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.acq_Arab": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.1205,
+      "ece": 0.1569,
+      "brier": 0.8529,
+      "nll": 2.059,
+      "ms_per_case": 98.99,
+      "meta": {
+        "note": "SIB-200 acq_Arab, 7 topics (held out)",
+        "lang": "acq_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.aeb_Arab": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.1193,
+      "ece": 0.1292,
+      "brier": 0.8746,
+      "nll": 2.0867,
+      "ms_per_case": 101.22,
+      "meta": {
+        "note": "SIB-200 aeb_Arab, 7 topics (held out)",
+        "lang": "aeb_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.afr_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3333,
+      "ece": 0.3437,
+      "brier": 0.7081,
+      "nll": 1.5613,
+      "ms_per_case": 68.27,
+      "meta": {
+        "note": "SIB-200 afr_Latn, 7 topics (held out)",
+        "lang": "afr_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ajp_Arab": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.0797,
+      "ece": 0.2606,
+      "brier": 0.9112,
+      "nll": 2.0936,
+      "ms_per_case": 95.72,
+      "meta": {
+        "note": "SIB-200 ajp_Arab, 7 topics (held out)",
+        "lang": "ajp_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.aka_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.4464,
+      "ece": 0.2202,
+      "brier": 0.5588,
+      "nll": 1.2125,
+      "ms_per_case": 78.46,
+      "meta": {
+        "note": "SIB-200 aka_Latn, 7 topics (held out)",
+        "lang": "aka_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.als_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.4254,
+      "ece": 0.1897,
+      "brier": 0.472,
+      "nll": 1.0848,
+      "ms_per_case": 72.6,
+      "meta": {
+        "note": "SIB-200 als_Latn, 7 topics (held out)",
+        "lang": "als_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.amh_Ethi": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1926,
+      "ece": 0.3887,
+      "brier": 0.9744,
+      "nll": 2.3247,
+      "ms_per_case": 44.03,
+      "meta": {
+        "note": "SIB-200 amh_Ethi, 7 topics (held out)",
+        "lang": "amh_Ethi",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.apc_Arab": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.1418,
+      "ece": 0.178,
+      "brier": 0.8075,
+      "nll": 1.9427,
+      "ms_per_case": 110.86,
+      "meta": {
+        "note": "SIB-200 apc_Arab, 7 topics (held out)",
+        "lang": "apc_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.arb_Arab": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.1091,
+      "ece": 0.1605,
+      "brier": 0.8454,
+      "nll": 2.0097,
+      "ms_per_case": 104.2,
+      "meta": {
+        "note": "SIB-200 arb_Arab, 7 topics (held out)",
+        "lang": "arb_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.arb_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.1376,
+      "ece": 0.2901,
+      "brier": 0.7084,
+      "nll": 1.7061,
+      "ms_per_case": 86.3,
+      "meta": {
+        "note": "SIB-200 arb_Latn, 7 topics (held out)",
+        "lang": "arb_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ars_Arab": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.0857,
+      "ece": 0.1933,
+      "brier": 0.8653,
+      "nll": 2.0333,
+      "ms_per_case": 104.05,
+      "meta": {
+        "note": "SIB-200 ars_Arab, 7 topics (held out)",
+        "lang": "ars_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ary_Arab": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.1117,
+      "ece": 0.1777,
+      "brier": 0.8004,
+      "nll": 1.9125,
+      "ms_per_case": 99.62,
+      "meta": {
+        "note": "SIB-200 ary_Arab, 7 topics (held out)",
+        "lang": "ary_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.arz_Arab": {
+      "n": 24,
+      "accuracy": 0.125,
+      "macro_f1": 0.0577,
+      "ece": 0.2668,
+      "brier": 0.9199,
+      "nll": 2.2214,
+      "ms_per_case": 99.26,
+      "meta": {
+        "note": "SIB-200 arz_Arab, 7 topics (held out)",
+        "lang": "arz_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.asm_Beng": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.0978,
+      "ece": 0.2262,
+      "brier": 0.8933,
+      "nll": 2.0691,
+      "ms_per_case": 67.02,
+      "meta": {
+        "note": "SIB-200 asm_Beng, 7 topics (held out)",
+        "lang": "asm_Beng",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ast_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.398,
+      "ece": 0.2665,
+      "brier": 0.631,
+      "nll": 1.4993,
+      "ms_per_case": 64.7,
+      "meta": {
+        "note": "SIB-200 ast_Latn, 7 topics (held out)",
+        "lang": "ast_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.awa_Deva": {
+      "n": 24,
+      "accuracy": 0.125,
+      "macro_f1": 0.0556,
+      "ece": 0.5053,
+      "brier": 1.1212,
+      "nll": 2.7332,
+      "ms_per_case": 105.54,
+      "meta": {
+        "note": "SIB-200 awa_Deva, 7 topics (held out)",
+        "lang": "awa_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ayr_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2167,
+      "ece": 0.2055,
+      "brier": 0.6688,
+      "nll": 1.5397,
+      "ms_per_case": 74.54,
+      "meta": {
+        "note": "SIB-200 ayr_Latn, 7 topics (held out)",
+        "lang": "ayr_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.azb_Arab": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.0893,
+      "ece": 0.1796,
+      "brier": 0.9018,
+      "nll": 2.1344,
+      "ms_per_case": 109.28,
+      "meta": {
+        "note": "SIB-200 azb_Arab, 7 topics (held out)",
+        "lang": "azb_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.azj_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3571,
+      "ece": 0.3013,
+      "brier": 0.6461,
+      "nll": 1.5076,
+      "ms_per_case": 93.88,
+      "meta": {
+        "note": "SIB-200 azj_Latn, 7 topics (held out)",
+        "lang": "azj_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bak_Cyrl": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.146,
+      "ece": 0.2974,
+      "brier": 0.7888,
+      "nll": 1.9639,
+      "ms_per_case": 73.11,
+      "meta": {
+        "note": "SIB-200 bak_Cyrl, 7 topics (held out)",
+        "lang": "bak_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bam_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.2102,
+      "ece": 0.303,
+      "brier": 0.8187,
+      "nll": 1.8658,
+      "ms_per_case": 77.19,
+      "meta": {
+        "note": "SIB-200 bam_Latn, 7 topics (held out)",
+        "lang": "bam_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ban_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.342,
+      "ece": 0.1891,
+      "brier": 0.5655,
+      "nll": 1.2832,
+      "ms_per_case": 71.42,
+      "meta": {
+        "note": "SIB-200 ban_Latn, 7 topics (held out)",
+        "lang": "ban_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bel_Cyrl": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.0737,
+      "ece": 0.4165,
+      "brier": 0.8751,
+      "nll": 1.9544,
+      "ms_per_case": 136.01,
+      "meta": {
+        "note": "SIB-200 bel_Cyrl, 7 topics (held out)",
+        "lang": "bel_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bem_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3905,
+      "ece": 0.307,
+      "brier": 0.5801,
+      "nll": 1.2119,
+      "ms_per_case": 79.34,
+      "meta": {
+        "note": "SIB-200 bem_Latn, 7 topics (held out)",
+        "lang": "bem_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ben_Beng": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.1349,
+      "ece": 0.22,
+      "brier": 0.9047,
+      "nll": 2.3387,
+      "ms_per_case": 106.93,
+      "meta": {
+        "note": "SIB-200 ben_Beng, 7 topics (held out)",
+        "lang": "ben_Beng",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bho_Deva": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.0248,
+      "ece": 0.4943,
+      "brier": 1.1214,
+      "nll": 2.5705,
+      "ms_per_case": 89.01,
+      "meta": {
+        "note": "SIB-200 bho_Deva, 7 topics (held out)",
+        "lang": "bho_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bjn_Arab": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1063,
+      "ece": 0.2372,
+      "brier": 0.8927,
+      "nll": 2.1235,
+      "ms_per_case": 74.92,
+      "meta": {
+        "note": "SIB-200 bjn_Arab, 7 topics (held out)",
+        "lang": "bjn_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bjn_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.4212,
+      "ece": 0.2161,
+      "brier": 0.5604,
+      "nll": 1.206,
+      "ms_per_case": 64.09,
+      "meta": {
+        "note": "SIB-200 bjn_Latn, 7 topics (held out)",
+        "lang": "bjn_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bod_Tibt": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.022,
+      "ece": 0.8712,
+      "brier": 1.7311,
+      "nll": 5.8536,
+      "ms_per_case": 113.35,
+      "meta": {
+        "note": "SIB-200 bod_Tibt, 7 topics (held out)",
+        "lang": "bod_Tibt",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bos_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.34,
+      "ece": 0.2558,
+      "brier": 0.6121,
+      "nll": 1.271,
+      "ms_per_case": 69.75,
+      "meta": {
+        "note": "SIB-200 bos_Latn, 7 topics (held out)",
+        "lang": "bos_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bug_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.319,
+      "ece": 0.2273,
+      "brier": 0.5842,
+      "nll": 1.3235,
+      "ms_per_case": 65.96,
+      "meta": {
+        "note": "SIB-200 bug_Latn, 7 topics (held out)",
+        "lang": "bug_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.bul_Cyrl": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.169,
+      "ece": 0.4767,
+      "brier": 0.9701,
+      "nll": 2.4036,
+      "ms_per_case": 118.11,
+      "meta": {
+        "note": "SIB-200 bul_Cyrl, 7 topics (held out)",
+        "lang": "bul_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.cat_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.2545,
+      "ece": 0.3266,
+      "brier": 0.5892,
+      "nll": 1.4782,
+      "ms_per_case": 64.24,
+      "meta": {
+        "note": "SIB-200 cat_Latn, 7 topics (held out)",
+        "lang": "cat_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ceb_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.4031,
+      "ece": 0.2147,
+      "brier": 0.4958,
+      "nll": 1.0548,
+      "ms_per_case": 73.13,
+      "meta": {
+        "note": "SIB-200 ceb_Latn, 7 topics (held out)",
+        "lang": "ceb_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ces_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3761,
+      "ece": 0.1658,
+      "brier": 0.5843,
+      "nll": 1.4033,
+      "ms_per_case": 69.11,
+      "meta": {
+        "note": "SIB-200 ces_Latn, 7 topics (held out)",
+        "lang": "ces_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.cjk_Latn": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2143,
+      "ece": 0.2509,
+      "brier": 0.7916,
+      "nll": 1.7951,
+      "ms_per_case": 70.92,
+      "meta": {
+        "note": "SIB-200 cjk_Latn, 7 topics (held out)",
+        "lang": "cjk_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ckb_Arab": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.1774,
+      "ece": 0.2164,
+      "brier": 0.8847,
+      "nll": 2.2426,
+      "ms_per_case": 53.49,
+      "meta": {
+        "note": "SIB-200 ckb_Arab, 7 topics (held out)",
+        "lang": "ckb_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.crh_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.4397,
+      "ece": 0.1886,
+      "brier": 0.5561,
+      "nll": 1.2253,
+      "ms_per_case": 72.57,
+      "meta": {
+        "note": "SIB-200 crh_Latn, 7 topics (held out)",
+        "lang": "crh_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.cym_Latn": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2432,
+      "ece": 0.2503,
+      "brier": 0.723,
+      "nll": 1.6856,
+      "ms_per_case": 80.15,
+      "meta": {
+        "note": "SIB-200 cym_Latn, 7 topics (held out)",
+        "lang": "cym_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.dan_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.4333,
+      "ece": 0.2862,
+      "brier": 0.6041,
+      "nll": 1.2858,
+      "ms_per_case": 64.95,
+      "meta": {
+        "note": "SIB-200 dan_Latn, 7 topics (held out)",
+        "lang": "dan_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.deu_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.466,
+      "ece": 0.1915,
+      "brier": 0.5023,
+      "nll": 1.1202,
+      "ms_per_case": 65.56,
+      "meta": {
+        "note": "SIB-200 deu_Latn, 7 topics (held out)",
+        "lang": "deu_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.dik_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.2933,
+      "ece": 0.2116,
+      "brier": 0.6474,
+      "nll": 1.4644,
+      "ms_per_case": 83.49,
+      "meta": {
+        "note": "SIB-200 dik_Latn, 7 topics (held out)",
+        "lang": "dik_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.dyu_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.3512,
+      "ece": 0.2783,
+      "brier": 0.6504,
+      "nll": 1.5071,
+      "ms_per_case": 67.82,
+      "meta": {
+        "note": "SIB-200 dyu_Latn, 7 topics (held out)",
+        "lang": "dyu_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.dzo_Tibt": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.022,
+      "ece": 0.8837,
+      "brier": 1.7639,
+      "nll": 5.9286,
+      "ms_per_case": 121.2,
+      "meta": {
+        "note": "SIB-200 dzo_Tibt, 7 topics (held out)",
+        "lang": "dzo_Tibt",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ell_Grek": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2456,
+      "ece": 0.2195,
+      "brier": 0.7731,
+      "nll": 1.9104,
+      "ms_per_case": 133.7,
+      "meta": {
+        "note": "SIB-200 ell_Grek, 7 topics (held out)",
+        "lang": "ell_Grek",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.eng_Latn": {
+      "n": 24,
+      "accuracy": 0.875,
+      "macro_f1": 0.8197,
+      "ece": 0.1534,
+      "brier": 0.27,
+      "nll": 0.5999,
+      "ms_per_case": 50.23,
+      "meta": {
+        "note": "SIB-200 eng_Latn, 7 topics (held out)",
+        "lang": "eng_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.epo_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3556,
+      "ece": 0.2242,
+      "brier": 0.6044,
+      "nll": 1.4873,
+      "ms_per_case": 71.85,
+      "meta": {
+        "note": "SIB-200 epo_Latn, 7 topics (held out)",
+        "lang": "epo_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.est_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3095,
+      "ece": 0.3375,
+      "brier": 0.6651,
+      "nll": 1.6462,
+      "ms_per_case": 67.2,
+      "meta": {
+        "note": "SIB-200 est_Latn, 7 topics (held out)",
+        "lang": "est_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.eus_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.4184,
+      "ece": 0.2293,
+      "brier": 0.6127,
+      "nll": 1.4702,
+      "ms_per_case": 72.53,
+      "meta": {
+        "note": "SIB-200 eus_Latn, 7 topics (held out)",
+        "lang": "eus_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ewe_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3143,
+      "ece": 0.1846,
+      "brier": 0.6379,
+      "nll": 1.4382,
+      "ms_per_case": 73.55,
+      "meta": {
+        "note": "SIB-200 ewe_Latn, 7 topics (held out)",
+        "lang": "ewe_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.fao_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.2899,
+      "ece": 0.2896,
+      "brier": 0.6856,
+      "nll": 1.6606,
+      "ms_per_case": 72.83,
+      "meta": {
+        "note": "SIB-200 fao_Latn, 7 topics (held out)",
+        "lang": "fao_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.fij_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.2693,
+      "ece": 0.3127,
+      "brier": 0.8035,
+      "nll": 1.8733,
+      "ms_per_case": 77.27,
+      "meta": {
+        "note": "SIB-200 fij_Latn, 7 topics (held out)",
+        "lang": "fij_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.fin_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3551,
+      "ece": 0.327,
+      "brier": 0.7601,
+      "nll": 1.8236,
+      "ms_per_case": 71.18,
+      "meta": {
+        "note": "SIB-200 fin_Latn, 7 topics (held out)",
+        "lang": "fin_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.fon_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3063,
+      "ece": 0.295,
+      "brier": 0.6722,
+      "nll": 1.5281,
+      "ms_per_case": 81.36,
+      "meta": {
+        "note": "SIB-200 fon_Latn, 7 topics (held out)",
+        "lang": "fon_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.fra_Latn": {
+      "n": 24,
+      "accuracy": 0.8333,
+      "macro_f1": 0.7936,
+      "ece": 0.2005,
+      "brier": 0.3158,
+      "nll": 0.709,
+      "ms_per_case": 67.48,
+      "meta": {
+        "note": "SIB-200 fra_Latn, 7 topics (held out)",
+        "lang": "fra_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.fur_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.466,
+      "ece": 0.2819,
+      "brier": 0.5855,
+      "nll": 1.3162,
+      "ms_per_case": 70.85,
+      "meta": {
+        "note": "SIB-200 fur_Latn, 7 topics (held out)",
+        "lang": "fur_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.fuv_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3202,
+      "ece": 0.2354,
+      "brier": 0.5633,
+      "nll": 1.2456,
+      "ms_per_case": 68.6,
+      "meta": {
+        "note": "SIB-200 fuv_Latn, 7 topics (held out)",
+        "lang": "fuv_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.gaz_Latn": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.181,
+      "ece": 0.4753,
+      "brier": 0.9835,
+      "nll": 2.6024,
+      "ms_per_case": 80.42,
+      "meta": {
+        "note": "SIB-200 gaz_Latn, 7 topics (held out)",
+        "lang": "gaz_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.gla_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.231,
+      "ece": 0.2004,
+      "brier": 0.7774,
+      "nll": 1.8223,
+      "ms_per_case": 78.34,
+      "meta": {
+        "note": "SIB-200 gla_Latn, 7 topics (held out)",
+        "lang": "gla_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.gle_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.267,
+      "ece": 0.2968,
+      "brier": 0.8147,
+      "nll": 1.9191,
+      "ms_per_case": 70.35,
+      "meta": {
+        "note": "SIB-200 gle_Latn, 7 topics (held out)",
+        "lang": "gle_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.glg_Latn": {
+      "n": 24,
+      "accuracy": 0.7083,
+      "macro_f1": 0.4747,
+      "ece": 0.1982,
+      "brier": 0.4454,
+      "nll": 0.9966,
+      "ms_per_case": 68.63,
+      "meta": {
+        "note": "SIB-200 glg_Latn, 7 topics (held out)",
+        "lang": "glg_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.grn_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3774,
+      "ece": 0.2608,
+      "brier": 0.5183,
+      "nll": 1.3537,
+      "ms_per_case": 71.92,
+      "meta": {
+        "note": "SIB-200 grn_Latn, 7 topics (held out)",
+        "lang": "grn_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.guj_Gujr": {
+      "n": 24,
+      "accuracy": 0.125,
+      "macro_f1": 0.0546,
+      "ece": 0.4434,
+      "brier": 1.0269,
+      "nll": 2.5593,
+      "ms_per_case": 48.5,
+      "meta": {
+        "note": "SIB-200 guj_Gujr, 7 topics (held out)",
+        "lang": "guj_Gujr",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.hat_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.454,
+      "ece": 0.1788,
+      "brier": 0.6573,
+      "nll": 1.5112,
+      "ms_per_case": 66.29,
+      "meta": {
+        "note": "SIB-200 hat_Latn, 7 topics (held out)",
+        "lang": "hat_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.hau_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2761,
+      "ece": 0.2578,
+      "brier": 0.6643,
+      "nll": 1.4632,
+      "ms_per_case": 68.26,
+      "meta": {
+        "note": "SIB-200 hau_Latn, 7 topics (held out)",
+        "lang": "hau_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.heb_Hebr": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1786,
+      "ece": 0.2319,
+      "brier": 0.8331,
+      "nll": 2.0052,
+      "ms_per_case": 97.09,
+      "meta": {
+        "note": "SIB-200 heb_Hebr, 7 topics (held out)",
+        "lang": "heb_Hebr",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.hin_Deva": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.0248,
+      "ece": 0.4959,
+      "brier": 1.1236,
+      "nll": 2.675,
+      "ms_per_case": 80.0,
+      "meta": {
+        "note": "SIB-200 hin_Deva, 7 topics (held out)",
+        "lang": "hin_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.hne_Deva": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.0238,
+      "ece": 0.5415,
+      "brier": 1.162,
+      "nll": 2.7622,
+      "ms_per_case": 78.99,
+      "meta": {
+        "note": "SIB-200 hne_Deva, 7 topics (held out)",
+        "lang": "hne_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.hrv_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.328,
+      "ece": 0.2401,
+      "brier": 0.603,
+      "nll": 1.3008,
+      "ms_per_case": 73.73,
+      "meta": {
+        "note": "SIB-200 hrv_Latn, 7 topics (held out)",
+        "lang": "hrv_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.hun_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3297,
+      "ece": 0.2843,
+      "brier": 0.6743,
+      "nll": 1.4638,
+      "ms_per_case": 72.38,
+      "meta": {
+        "note": "SIB-200 hun_Latn, 7 topics (held out)",
+        "lang": "hun_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.hye_Armn": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.1224,
+      "ece": 0.4766,
+      "brier": 1.1016,
+      "nll": 2.5417,
+      "ms_per_case": 83.31,
+      "meta": {
+        "note": "SIB-200 hye_Armn, 7 topics (held out)",
+        "lang": "hye_Armn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ibo_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.1922,
+      "ece": 0.2041,
+      "brier": 0.7082,
+      "nll": 1.6347,
+      "ms_per_case": 73.53,
+      "meta": {
+        "note": "SIB-200 ibo_Latn, 7 topics (held out)",
+        "lang": "ibo_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ilo_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.4817,
+      "ece": 0.2006,
+      "brier": 0.5133,
+      "nll": 1.071,
+      "ms_per_case": 78.63,
+      "meta": {
+        "note": "SIB-200 ilo_Latn, 7 topics (held out)",
+        "lang": "ilo_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ind_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3655,
+      "ece": 0.2691,
+      "brier": 0.5915,
+      "nll": 1.5063,
+      "ms_per_case": 69.44,
+      "meta": {
+        "note": "SIB-200 ind_Latn, 7 topics (held out)",
+        "lang": "ind_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.isl_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3027,
+      "ece": 0.2131,
+      "brier": 0.6649,
+      "nll": 1.5616,
+      "ms_per_case": 79.59,
+      "meta": {
+        "note": "SIB-200 isl_Latn, 7 topics (held out)",
+        "lang": "isl_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ita_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.3751,
+      "ece": 0.262,
+      "brier": 0.4792,
+      "nll": 1.0342,
+      "ms_per_case": 80.12,
+      "meta": {
+        "note": "SIB-200 ita_Latn, 7 topics (held out)",
+        "lang": "ita_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.jav_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3546,
+      "ece": 0.2633,
+      "brier": 0.6795,
+      "nll": 1.6282,
+      "ms_per_case": 67.36,
+      "meta": {
+        "note": "SIB-200 jav_Latn, 7 topics (held out)",
+        "lang": "jav_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.jpn_Jpan": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.2602,
+      "ece": 0.522,
+      "brier": 1.0736,
+      "nll": 2.4899,
+      "ms_per_case": 71.64,
+      "meta": {
+        "note": "SIB-200 jpn_Jpan, 7 topics (held out)",
+        "lang": "jpn_Jpan",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kab_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.1806,
+      "ece": 0.1356,
+      "brier": 0.8266,
+      "nll": 1.937,
+      "ms_per_case": 72.57,
+      "meta": {
+        "note": "SIB-200 kab_Latn, 7 topics (held out)",
+        "lang": "kab_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kac_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.4432,
+      "ece": 0.2787,
+      "brier": 0.6326,
+      "nll": 1.4598,
+      "ms_per_case": 79.65,
+      "meta": {
+        "note": "SIB-200 kac_Latn, 7 topics (held out)",
+        "lang": "kac_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kam_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3045,
+      "ece": 0.2913,
+      "brier": 0.7619,
+      "nll": 1.8424,
+      "ms_per_case": 63.57,
+      "meta": {
+        "note": "SIB-200 kam_Latn, 7 topics (held out)",
+        "lang": "kam_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kan_Knda": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1906,
+      "ece": 0.3705,
+      "brier": 0.9292,
+      "nll": 2.327,
+      "ms_per_case": 43.89,
+      "meta": {
+        "note": "SIB-200 kan_Knda, 7 topics (held out)",
+        "lang": "kan_Knda",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kas_Arab": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.0667,
+      "ece": 0.4517,
+      "brier": 1.023,
+      "nll": 2.4015,
+      "ms_per_case": 100.29,
+      "meta": {
+        "note": "SIB-200 kas_Arab, 7 topics (held out)",
+        "lang": "kas_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kas_Deva": {
+      "n": 24,
+      "accuracy": 0.125,
+      "macro_f1": 0.142,
+      "ece": 0.5083,
+      "brier": 1.0701,
+      "nll": 2.4473,
+      "ms_per_case": 87.37,
+      "meta": {
+        "note": "SIB-200 kas_Deva, 7 topics (held out)",
+        "lang": "kas_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kat_Geor": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2024,
+      "ece": 0.2383,
+      "brier": 0.8044,
+      "nll": 1.8436,
+      "ms_per_case": 78.67,
+      "meta": {
+        "note": "SIB-200 kat_Geor, 7 topics (held out)",
+        "lang": "kat_Geor",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kaz_Cyrl": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.1837,
+      "ece": 0.2333,
+      "brier": 0.8157,
+      "nll": 1.962,
+      "ms_per_case": 81.15,
+      "meta": {
+        "note": "SIB-200 kaz_Cyrl, 7 topics (held out)",
+        "lang": "kaz_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kbp_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3182,
+      "ece": 0.2668,
+      "brier": 0.6398,
+      "nll": 1.4667,
+      "ms_per_case": 71.44,
+      "meta": {
+        "note": "SIB-200 kbp_Latn, 7 topics (held out)",
+        "lang": "kbp_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kea_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3639,
+      "ece": 0.2932,
+      "brier": 0.6352,
+      "nll": 1.6168,
+      "ms_per_case": 64.6,
+      "meta": {
+        "note": "SIB-200 kea_Latn, 7 topics (held out)",
+        "lang": "kea_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.khk_Cyrl": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.1285,
+      "ece": 0.3884,
+      "brier": 0.9822,
+      "nll": 2.2042,
+      "ms_per_case": 101.35,
+      "meta": {
+        "note": "SIB-200 khk_Cyrl, 7 topics (held out)",
+        "lang": "khk_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.khm_Khmr": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.3123,
+      "ece": 0.3094,
+      "brier": 0.7202,
+      "nll": 1.5584,
+      "ms_per_case": 40.06,
+      "meta": {
+        "note": "SIB-200 khm_Khmr, 7 topics (held out)",
+        "lang": "khm_Khmr",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kik_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.354,
+      "ece": 0.3053,
+      "brier": 0.741,
+      "nll": 1.6656,
+      "ms_per_case": 65.77,
+      "meta": {
+        "note": "SIB-200 kik_Latn, 7 topics (held out)",
+        "lang": "kik_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kin_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3305,
+      "ece": 0.2173,
+      "brier": 0.676,
+      "nll": 1.4621,
+      "ms_per_case": 75.94,
+      "meta": {
+        "note": "SIB-200 kin_Latn, 7 topics (held out)",
+        "lang": "kin_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kir_Cyrl": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.1514,
+      "ece": 0.1924,
+      "brier": 0.8316,
+      "nll": 2.1399,
+      "ms_per_case": 99.91,
+      "meta": {
+        "note": "SIB-200 kir_Cyrl, 7 topics (held out)",
+        "lang": "kir_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kmb_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.2806,
+      "ece": 0.1216,
+      "brier": 0.6501,
+      "nll": 1.4613,
+      "ms_per_case": 72.24,
+      "meta": {
+        "note": "SIB-200 kmb_Latn, 7 topics (held out)",
+        "lang": "kmb_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kmr_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3827,
+      "ece": 0.2149,
+      "brier": 0.5957,
+      "nll": 1.4124,
+      "ms_per_case": 65.75,
+      "meta": {
+        "note": "SIB-200 kmr_Latn, 7 topics (held out)",
+        "lang": "kmr_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.knc_Arab": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.0854,
+      "ece": 0.3002,
+      "brier": 0.8639,
+      "nll": 2.128,
+      "ms_per_case": 86.48,
+      "meta": {
+        "note": "SIB-200 knc_Arab, 7 topics (held out)",
+        "lang": "knc_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.knc_Latn": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.1134,
+      "ece": 0.3605,
+      "brier": 0.8395,
+      "nll": 1.7616,
+      "ms_per_case": 69.73,
+      "meta": {
+        "note": "SIB-200 knc_Latn, 7 topics (held out)",
+        "lang": "knc_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kon_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.5165,
+      "ece": 0.1865,
+      "brier": 0.5564,
+      "nll": 1.2761,
+      "ms_per_case": 70.37,
+      "meta": {
+        "note": "SIB-200 kon_Latn, 7 topics (held out)",
+        "lang": "kon_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.kor_Hang": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.1088,
+      "ece": 0.4708,
+      "brier": 1.1188,
+      "nll": 2.7343,
+      "ms_per_case": 91.74,
+      "meta": {
+        "note": "SIB-200 kor_Hang, 7 topics (held out)",
+        "lang": "kor_Hang",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lao_Laoo": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.3531,
+      "ece": 0.3003,
+      "brier": 0.7475,
+      "nll": 1.6292,
+      "ms_per_case": 40.29,
+      "meta": {
+        "note": "SIB-200 lao_Laoo, 7 topics (held out)",
+        "lang": "lao_Laoo",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lij_Latn": {
+      "n": 24,
+      "accuracy": 0.6667,
+      "macro_f1": 0.4242,
+      "ece": 0.3394,
+      "brier": 0.5559,
+      "nll": 1.3774,
+      "ms_per_case": 72.67,
+      "meta": {
+        "note": "SIB-200 lij_Latn, 7 topics (held out)",
+        "lang": "lij_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lim_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.4048,
+      "ece": 0.2087,
+      "brier": 0.6269,
+      "nll": 1.3841,
+      "ms_per_case": 71.84,
+      "meta": {
+        "note": "SIB-200 lim_Latn, 7 topics (held out)",
+        "lang": "lim_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lin_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3758,
+      "ece": 0.1942,
+      "brier": 0.5911,
+      "nll": 1.4676,
+      "ms_per_case": 70.67,
+      "meta": {
+        "note": "SIB-200 lin_Latn, 7 topics (held out)",
+        "lang": "lin_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lit_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3599,
+      "ece": 0.3231,
+      "brier": 0.7514,
+      "nll": 1.9758,
+      "ms_per_case": 69.75,
+      "meta": {
+        "note": "SIB-200 lit_Latn, 7 topics (held out)",
+        "lang": "lit_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lmo_Latn": {
+      "n": 24,
+      "accuracy": 0.75,
+      "macro_f1": 0.5684,
+      "ece": 0.1988,
+      "brier": 0.3727,
+      "nll": 0.9144,
+      "ms_per_case": 76.58,
+      "meta": {
+        "note": "SIB-200 lmo_Latn, 7 topics (held out)",
+        "lang": "lmo_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ltg_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.4714,
+      "ece": 0.2522,
+      "brier": 0.5769,
+      "nll": 1.4058,
+      "ms_per_case": 73.42,
+      "meta": {
+        "note": "SIB-200 ltg_Latn, 7 topics (held out)",
+        "lang": "ltg_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ltz_Latn": {
+      "n": 24,
+      "accuracy": 0.75,
+      "macro_f1": 0.5775,
+      "ece": 0.2432,
+      "brier": 0.4952,
+      "nll": 1.1974,
+      "ms_per_case": 72.03,
+      "meta": {
+        "note": "SIB-200 ltz_Latn, 7 topics (held out)",
+        "lang": "ltz_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lua_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.431,
+      "ece": 0.2303,
+      "brier": 0.6331,
+      "nll": 1.4984,
+      "ms_per_case": 70.75,
+      "meta": {
+        "note": "SIB-200 lua_Latn, 7 topics (held out)",
+        "lang": "lua_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lug_Latn": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2056,
+      "ece": 0.3229,
+      "brier": 0.8044,
+      "nll": 1.9691,
+      "ms_per_case": 70.21,
+      "meta": {
+        "note": "SIB-200 lug_Latn, 7 topics (held out)",
+        "lang": "lug_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.luo_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2435,
+      "ece": 0.2355,
+      "brier": 0.7274,
+      "nll": 1.6782,
+      "ms_per_case": 69.7,
+      "meta": {
+        "note": "SIB-200 luo_Latn, 7 topics (held out)",
+        "lang": "luo_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lus_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.454,
+      "ece": 0.2119,
+      "brier": 0.6147,
+      "nll": 1.3544,
+      "ms_per_case": 64.84,
+      "meta": {
+        "note": "SIB-200 lus_Latn, 7 topics (held out)",
+        "lang": "lus_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.lvs_Latn": {
+      "n": 24,
+      "accuracy": 0.7083,
+      "macro_f1": 0.5489,
+      "ece": 0.1899,
+      "brier": 0.4192,
+      "nll": 0.9335,
+      "ms_per_case": 71.07,
+      "meta": {
+        "note": "SIB-200 lvs_Latn, 7 topics (held out)",
+        "lang": "lvs_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mag_Deva": {
+      "n": 24,
+      "accuracy": 0.125,
+      "macro_f1": 0.0556,
+      "ece": 0.5935,
+      "brier": 1.1688,
+      "nll": 2.8131,
+      "ms_per_case": 100.75,
+      "meta": {
+        "note": "SIB-200 mag_Deva, 7 topics (held out)",
+        "lang": "mag_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mai_Deva": {
+      "n": 24,
+      "accuracy": 0.125,
+      "macro_f1": 0.059,
+      "ece": 0.4744,
+      "brier": 1.0622,
+      "nll": 2.4885,
+      "ms_per_case": 89.99,
+      "meta": {
+        "note": "SIB-200 mai_Deva, 7 topics (held out)",
+        "lang": "mai_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mal_Mlym": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.0964,
+      "ece": 0.3714,
+      "brier": 1.009,
+      "nll": 2.4239,
+      "ms_per_case": 43.62,
+      "meta": {
+        "note": "SIB-200 mal_Mlym, 7 topics (held out)",
+        "lang": "mal_Mlym",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mar_Deva": {
+      "n": 24,
+      "accuracy": 0.125,
+      "macro_f1": 0.0617,
+      "ece": 0.4387,
+      "brier": 1.0932,
+      "nll": 2.5979,
+      "ms_per_case": 91.56,
+      "meta": {
+        "note": "SIB-200 mar_Deva, 7 topics (held out)",
+        "lang": "mar_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.min_Arab": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.0952,
+      "ece": 0.2436,
+      "brier": 0.8743,
+      "nll": 1.9916,
+      "ms_per_case": 80.0,
+      "meta": {
+        "note": "SIB-200 min_Arab, 7 topics (held out)",
+        "lang": "min_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.min_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3102,
+      "ece": 0.2706,
+      "brier": 0.6003,
+      "nll": 1.3252,
+      "ms_per_case": 68.53,
+      "meta": {
+        "note": "SIB-200 min_Latn, 7 topics (held out)",
+        "lang": "min_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mkd_Cyrl": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.0762,
+      "ece": 0.3757,
+      "brier": 0.9047,
+      "nll": 2.1022,
+      "ms_per_case": 134.03,
+      "meta": {
+        "note": "SIB-200 mkd_Cyrl, 7 topics (held out)",
+        "lang": "mkd_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mlt_Latn": {
+      "n": 24,
+      "accuracy": 0.6667,
+      "macro_f1": 0.5571,
+      "ece": 0.2668,
+      "brier": 0.5087,
+      "nll": 1.1941,
+      "ms_per_case": 75.88,
+      "meta": {
+        "note": "SIB-200 mlt_Latn, 7 topics (held out)",
+        "lang": "mlt_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mni_Beng": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2887,
+      "ece": 0.2616,
+      "brier": 0.8476,
+      "nll": 2.0657,
+      "ms_per_case": 94.37,
+      "meta": {
+        "note": "SIB-200 mni_Beng, 7 topics (held out)",
+        "lang": "mni_Beng",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mos_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3097,
+      "ece": 0.1818,
+      "brier": 0.673,
+      "nll": 1.4892,
+      "ms_per_case": 65.99,
+      "meta": {
+        "note": "SIB-200 mos_Latn, 7 topics (held out)",
+        "lang": "mos_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mri_Latn": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2503,
+      "ece": 0.1942,
+      "brier": 0.8123,
+      "nll": 1.8496,
+      "ms_per_case": 70.03,
+      "meta": {
+        "note": "SIB-200 mri_Latn, 7 topics (held out)",
+        "lang": "mri_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.mya_Mymr": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.0964,
+      "ece": 0.3847,
+      "brier": 0.9958,
+      "nll": 2.5029,
+      "ms_per_case": 40.32,
+      "meta": {
+        "note": "SIB-200 mya_Mymr, 7 topics (held out)",
+        "lang": "mya_Mymr",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.nld_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.4327,
+      "ece": 0.3488,
+      "brier": 0.614,
+      "nll": 1.2773,
+      "ms_per_case": 64.96,
+      "meta": {
+        "note": "SIB-200 nld_Latn, 7 topics (held out)",
+        "lang": "nld_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.nno_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3837,
+      "ece": 0.2611,
+      "brier": 0.6339,
+      "nll": 1.3119,
+      "ms_per_case": 62.16,
+      "meta": {
+        "note": "SIB-200 nno_Latn, 7 topics (held out)",
+        "lang": "nno_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.nob_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.4143,
+      "ece": 0.2246,
+      "brier": 0.6216,
+      "nll": 1.3459,
+      "ms_per_case": 63.05,
+      "meta": {
+        "note": "SIB-200 nob_Latn, 7 topics (held out)",
+        "lang": "nob_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.npi_Deva": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.0301,
+      "ece": 0.4322,
+      "brier": 1.0788,
+      "nll": 2.5808,
+      "ms_per_case": 77.26,
+      "meta": {
+        "note": "SIB-200 npi_Deva, 7 topics (held out)",
+        "lang": "npi_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.nqo_Nkoo": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.0985,
+      "ece": 0.3603,
+      "brier": 0.9441,
+      "nll": 2.2712,
+      "ms_per_case": 52.38,
+      "meta": {
+        "note": "SIB-200 nqo_Nkoo, 7 topics (held out)",
+        "lang": "nqo_Nkoo",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.nso_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.273,
+      "ece": 0.1728,
+      "brier": 0.7004,
+      "nll": 1.5851,
+      "ms_per_case": 68.46,
+      "meta": {
+        "note": "SIB-200 nso_Latn, 7 topics (held out)",
+        "lang": "nso_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.nus_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.2679,
+      "ece": 0.1096,
+      "brier": 0.7878,
+      "nll": 1.8801,
+      "ms_per_case": 79.88,
+      "meta": {
+        "note": "SIB-200 nus_Latn, 7 topics (held out)",
+        "lang": "nus_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.nya_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.2946,
+      "ece": 0.2325,
+      "brier": 0.6629,
+      "nll": 1.4558,
+      "ms_per_case": 78.02,
+      "meta": {
+        "note": "SIB-200 nya_Latn, 7 topics (held out)",
+        "lang": "nya_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.oci_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.4231,
+      "ece": 0.2085,
+      "brier": 0.5088,
+      "nll": 1.0861,
+      "ms_per_case": 66.44,
+      "meta": {
+        "note": "SIB-200 oci_Latn, 7 topics (held out)",
+        "lang": "oci_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ory_Orya": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1906,
+      "ece": 0.4262,
+      "brier": 0.9756,
+      "nll": 2.4528,
+      "ms_per_case": 44.43,
+      "meta": {
+        "note": "SIB-200 ory_Orya, 7 topics (held out)",
+        "lang": "ory_Orya",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.pag_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3929,
+      "ece": 0.1707,
+      "brier": 0.4561,
+      "nll": 1.0571,
+      "ms_per_case": 63.3,
+      "meta": {
+        "note": "SIB-200 pag_Latn, 7 topics (held out)",
+        "lang": "pag_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.pan_Guru": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.128,
+      "ece": 0.4257,
+      "brier": 1.0108,
+      "nll": 2.6313,
+      "ms_per_case": 52.73,
+      "meta": {
+        "note": "SIB-200 pan_Guru, 7 topics (held out)",
+        "lang": "pan_Guru",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.pap_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.5147,
+      "ece": 0.2447,
+      "brier": 0.5068,
+      "nll": 1.3245,
+      "ms_per_case": 74.44,
+      "meta": {
+        "note": "SIB-200 pap_Latn, 7 topics (held out)",
+        "lang": "pap_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.pbt_Arab": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2381,
+      "ece": 0.3012,
+      "brier": 0.7975,
+      "nll": 1.8871,
+      "ms_per_case": 89.74,
+      "meta": {
+        "note": "SIB-200 pbt_Arab, 7 topics (held out)",
+        "lang": "pbt_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.pes_Arab": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1356,
+      "ece": 0.2852,
+      "brier": 0.8335,
+      "nll": 2.0673,
+      "ms_per_case": 100.71,
+      "meta": {
+        "note": "SIB-200 pes_Arab, 7 topics (held out)",
+        "lang": "pes_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.plt_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2695,
+      "ece": 0.1675,
+      "brier": 0.6926,
+      "nll": 1.4956,
+      "ms_per_case": 84.44,
+      "meta": {
+        "note": "SIB-200 plt_Latn, 7 topics (held out)",
+        "lang": "plt_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.pol_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3749,
+      "ece": 0.3377,
+      "brier": 0.6641,
+      "nll": 1.3221,
+      "ms_per_case": 72.95,
+      "meta": {
+        "note": "SIB-200 pol_Latn, 7 topics (held out)",
+        "lang": "pol_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.por_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3541,
+      "ece": 0.264,
+      "brier": 0.5392,
+      "nll": 1.1749,
+      "ms_per_case": 67.58,
+      "meta": {
+        "note": "SIB-200 por_Latn, 7 topics (held out)",
+        "lang": "por_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.prs_Arab": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.2804,
+      "ece": 0.2364,
+      "brier": 0.8447,
+      "nll": 2.161,
+      "ms_per_case": 97.74,
+      "meta": {
+        "note": "SIB-200 prs_Arab, 7 topics (held out)",
+        "lang": "prs_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.quy_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3441,
+      "ece": 0.1176,
+      "brier": 0.514,
+      "nll": 1.1208,
+      "ms_per_case": 71.09,
+      "meta": {
+        "note": "SIB-200 quy_Latn, 7 topics (held out)",
+        "lang": "quy_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ron_Latn": {
+      "n": 24,
+      "accuracy": 0.7083,
+      "macro_f1": 0.578,
+      "ece": 0.1626,
+      "brier": 0.4473,
+      "nll": 0.95,
+      "ms_per_case": 68.47,
+      "meta": {
+        "note": "SIB-200 ron_Latn, 7 topics (held out)",
+        "lang": "ron_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.run_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.2857,
+      "ece": 0.2899,
+      "brier": 0.7154,
+      "nll": 1.6017,
+      "ms_per_case": 73.08,
+      "meta": {
+        "note": "SIB-200 run_Latn, 7 topics (held out)",
+        "lang": "run_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.rus_Cyrl": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.1514,
+      "ece": 0.2572,
+      "brier": 0.8563,
+      "nll": 2.1912,
+      "ms_per_case": 122.34,
+      "meta": {
+        "note": "SIB-200 rus_Cyrl, 7 topics (held out)",
+        "lang": "rus_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.sag_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.2922,
+      "ece": 0.2173,
+      "brier": 0.7053,
+      "nll": 1.5765,
+      "ms_per_case": 79.16,
+      "meta": {
+        "note": "SIB-200 sag_Latn, 7 topics (held out)",
+        "lang": "sag_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.san_Deva": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1245,
+      "ece": 0.238,
+      "brier": 0.9649,
+      "nll": 2.5274,
+      "ms_per_case": 79.68,
+      "meta": {
+        "note": "SIB-200 san_Deva, 7 topics (held out)",
+        "lang": "san_Deva",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.sat_Olck": {
+      "n": 24,
+      "accuracy": 0.0833,
+      "macro_f1": 0.022,
+      "ece": 0.5494,
+      "brier": 1.2268,
+      "nll": 3.0709,
+      "ms_per_case": 51.48,
+      "meta": {
+        "note": "SIB-200 sat_Olck, 7 topics (held out)",
+        "lang": "sat_Olck",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.scn_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.348,
+      "ece": 0.2648,
+      "brier": 0.6391,
+      "nll": 1.4792,
+      "ms_per_case": 72.25,
+      "meta": {
+        "note": "SIB-200 scn_Latn, 7 topics (held out)",
+        "lang": "scn_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.shn_Mymr": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3681,
+      "ece": 0.3104,
+      "brier": 0.5916,
+      "nll": 1.2719,
+      "ms_per_case": 43.36,
+      "meta": {
+        "note": "SIB-200 shn_Mymr, 7 topics (held out)",
+        "lang": "shn_Mymr",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.sin_Sinh": {
+      "n": 24,
+      "accuracy": 0.2083,
+      "macro_f1": 0.1817,
+      "ece": 0.3278,
+      "brier": 0.98,
+      "nll": 2.5026,
+      "ms_per_case": 49.59,
+      "meta": {
+        "note": "SIB-200 sin_Sinh, 7 topics (held out)",
+        "lang": "sin_Sinh",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.slk_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3452,
+      "ece": 0.1815,
+      "brier": 0.5251,
+      "nll": 1.07,
+      "ms_per_case": 75.01,
+      "meta": {
+        "note": "SIB-200 slk_Latn, 7 topics (held out)",
+        "lang": "slk_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.slv_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3465,
+      "ece": 0.2128,
+      "brier": 0.5529,
+      "nll": 1.3086,
+      "ms_per_case": 71.09,
+      "meta": {
+        "note": "SIB-200 slv_Latn, 7 topics (held out)",
+        "lang": "slv_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.smo_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.244,
+      "ece": 0.2281,
+      "brier": 0.7054,
+      "nll": 1.6563,
+      "ms_per_case": 79.84,
+      "meta": {
+        "note": "SIB-200 smo_Latn, 7 topics (held out)",
+        "lang": "smo_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.sna_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2193,
+      "ece": 0.2948,
+      "brier": 0.7716,
+      "nll": 1.7292,
+      "ms_per_case": 74.5,
+      "meta": {
+        "note": "SIB-200 sna_Latn, 7 topics (held out)",
+        "lang": "sna_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.snd_Arab": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.1765,
+      "ece": 0.1919,
+      "brier": 0.8558,
+      "nll": 1.9913,
+      "ms_per_case": 75.34,
+      "meta": {
+        "note": "SIB-200 snd_Arab, 7 topics (held out)",
+        "lang": "snd_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.som_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3283,
+      "ece": 0.1745,
+      "brier": 0.6738,
+      "nll": 1.6731,
+      "ms_per_case": 79.25,
+      "meta": {
+        "note": "SIB-200 som_Latn, 7 topics (held out)",
+        "lang": "som_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.sot_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3301,
+      "ece": 0.2445,
+      "brier": 0.6201,
+      "nll": 1.2935,
+      "ms_per_case": 77.17,
+      "meta": {
+        "note": "SIB-200 sot_Latn, 7 topics (held out)",
+        "lang": "sot_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.spa_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.3915,
+      "ece": 0.1895,
+      "brier": 0.483,
+      "nll": 1.0631,
+      "ms_per_case": 67.9,
+      "meta": {
+        "note": "SIB-200 spa_Latn, 7 topics (held out)",
+        "lang": "spa_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.srd_Latn": {
+      "n": 24,
+      "accuracy": 0.6667,
+      "macro_f1": 0.5247,
+      "ece": 0.208,
+      "brier": 0.5399,
+      "nll": 1.2646,
+      "ms_per_case": 71.41,
+      "meta": {
+        "note": "SIB-200 srd_Latn, 7 topics (held out)",
+        "lang": "srd_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.srp_Cyrl": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.0737,
+      "ece": 0.3091,
+      "brier": 0.9095,
+      "nll": 2.1868,
+      "ms_per_case": 112.99,
+      "meta": {
+        "note": "SIB-200 srp_Cyrl, 7 topics (held out)",
+        "lang": "srp_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ssw_Latn": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.215,
+      "ece": 0.2844,
+      "brier": 0.8028,
+      "nll": 1.8314,
+      "ms_per_case": 73.4,
+      "meta": {
+        "note": "SIB-200 ssw_Latn, 7 topics (held out)",
+        "lang": "ssw_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.sun_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.4075,
+      "ece": 0.2521,
+      "brier": 0.5197,
+      "nll": 1.2427,
+      "ms_per_case": 68.72,
+      "meta": {
+        "note": "SIB-200 sun_Latn, 7 topics (held out)",
+        "lang": "sun_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.swe_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3571,
+      "ece": 0.2034,
+      "brier": 0.5863,
+      "nll": 1.2722,
+      "ms_per_case": 67.82,
+      "meta": {
+        "note": "SIB-200 swe_Latn, 7 topics (held out)",
+        "lang": "swe_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.swh_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2048,
+      "ece": 0.1845,
+      "brier": 0.7705,
+      "nll": 1.8351,
+      "ms_per_case": 71.6,
+      "meta": {
+        "note": "SIB-200 swh_Latn, 7 topics (held out)",
+        "lang": "swh_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.szl_Latn": {
+      "n": 24,
+      "accuracy": 0.5417,
+      "macro_f1": 0.3456,
+      "ece": 0.2246,
+      "brier": 0.594,
+      "nll": 1.3004,
+      "ms_per_case": 75.48,
+      "meta": {
+        "note": "SIB-200 szl_Latn, 7 topics (held out)",
+        "lang": "szl_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tam_Taml": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.1199,
+      "ece": 0.3095,
+      "brier": 1.0413,
+      "nll": 2.5859,
+      "ms_per_case": 73.07,
+      "meta": {
+        "note": "SIB-200 tam_Taml, 7 topics (held out)",
+        "lang": "tam_Taml",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.taq_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2674,
+      "ece": 0.2903,
+      "brier": 0.7012,
+      "nll": 1.4142,
+      "ms_per_case": 67.44,
+      "meta": {
+        "note": "SIB-200 taq_Latn, 7 topics (held out)",
+        "lang": "taq_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.taq_Tfng": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.1508,
+      "ece": 0.5303,
+      "brier": 1.1137,
+      "nll": 2.5586,
+      "ms_per_case": 66.0,
+      "meta": {
+        "note": "SIB-200 taq_Tfng, 7 topics (held out)",
+        "lang": "taq_Tfng",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tat_Cyrl": {
+      "n": 24,
+      "accuracy": 0.2917,
+      "macro_f1": 0.1043,
+      "ece": 0.2923,
+      "brier": 0.8794,
+      "nll": 2.206,
+      "ms_per_case": 92.32,
+      "meta": {
+        "note": "SIB-200 tat_Cyrl, 7 topics (held out)",
+        "lang": "tat_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tel_Telu": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.1459,
+      "ece": 0.3396,
+      "brier": 0.8902,
+      "nll": 2.2233,
+      "ms_per_case": 44.62,
+      "meta": {
+        "note": "SIB-200 tel_Telu, 7 topics (held out)",
+        "lang": "tel_Telu",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tgk_Cyrl": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.0958,
+      "ece": 0.2915,
+      "brier": 0.8871,
+      "nll": 2.0799,
+      "ms_per_case": 104.29,
+      "meta": {
+        "note": "SIB-200 tgk_Cyrl, 7 topics (held out)",
+        "lang": "tgk_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tgl_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.3726,
+      "ece": 0.1389,
+      "brier": 0.5553,
+      "nll": 1.3237,
+      "ms_per_case": 73.27,
+      "meta": {
+        "note": "SIB-200 tgl_Latn, 7 topics (held out)",
+        "lang": "tgl_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tha_Thai": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.0792,
+      "ece": 0.3595,
+      "brier": 1.0135,
+      "nll": 2.1908,
+      "ms_per_case": 36.44,
+      "meta": {
+        "note": "SIB-200 tha_Thai, 7 topics (held out)",
+        "lang": "tha_Thai",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tir_Ethi": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.0964,
+      "ece": 0.4279,
+      "brier": 1.0485,
+      "nll": 2.6516,
+      "ms_per_case": 48.62,
+      "meta": {
+        "note": "SIB-200 tir_Ethi, 7 topics (held out)",
+        "lang": "tir_Ethi",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tpi_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.5,
+      "ece": 0.2809,
+      "brier": 0.5432,
+      "nll": 1.1689,
+      "ms_per_case": 71.89,
+      "meta": {
+        "note": "SIB-200 tpi_Latn, 7 topics (held out)",
+        "lang": "tpi_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tsn_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2417,
+      "ece": 0.2067,
+      "brier": 0.7252,
+      "nll": 1.7109,
+      "ms_per_case": 77.29,
+      "meta": {
+        "note": "SIB-200 tsn_Latn, 7 topics (held out)",
+        "lang": "tsn_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tso_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.3707,
+      "ece": 0.1958,
+      "brier": 0.6582,
+      "nll": 1.513,
+      "ms_per_case": 75.0,
+      "meta": {
+        "note": "SIB-200 tso_Latn, 7 topics (held out)",
+        "lang": "tso_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tuk_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.5691,
+      "ece": 0.1173,
+      "brier": 0.5635,
+      "nll": 1.3238,
+      "ms_per_case": 75.87,
+      "meta": {
+        "note": "SIB-200 tuk_Latn, 7 topics (held out)",
+        "lang": "tuk_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tum_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3234,
+      "ece": 0.1659,
+      "brier": 0.6968,
+      "nll": 1.663,
+      "ms_per_case": 79.03,
+      "meta": {
+        "note": "SIB-200 tum_Latn, 7 topics (held out)",
+        "lang": "tum_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tur_Latn": {
+      "n": 24,
+      "accuracy": 0.5833,
+      "macro_f1": 0.4398,
+      "ece": 0.208,
+      "brier": 0.5452,
+      "nll": 1.2134,
+      "ms_per_case": 70.59,
+      "meta": {
+        "note": "SIB-200 tur_Latn, 7 topics (held out)",
+        "lang": "tur_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.twi_Latn": {
+      "n": 24,
+      "accuracy": 0.625,
+      "macro_f1": 0.5289,
+      "ece": 0.1464,
+      "brier": 0.5309,
+      "nll": 1.1969,
+      "ms_per_case": 74.53,
+      "meta": {
+        "note": "SIB-200 twi_Latn, 7 topics (held out)",
+        "lang": "twi_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.tzm_Tfng": {
+      "n": 24,
+      "accuracy": 0.1667,
+      "macro_f1": 0.0964,
+      "ece": 0.3998,
+      "brier": 0.9659,
+      "nll": 2.3603,
+      "ms_per_case": 50.35,
+      "meta": {
+        "note": "SIB-200 tzm_Tfng, 7 topics (held out)",
+        "lang": "tzm_Tfng",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.uig_Arab": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.197,
+      "ece": 0.1741,
+      "brier": 0.8146,
+      "nll": 2.0946,
+      "ms_per_case": 66.23,
+      "meta": {
+        "note": "SIB-200 uig_Arab, 7 topics (held out)",
+        "lang": "uig_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ukr_Cyrl": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.2,
+      "ece": 0.3608,
+      "brier": 0.8757,
+      "nll": 2.2231,
+      "ms_per_case": 120.67,
+      "meta": {
+        "note": "SIB-200 ukr_Cyrl, 7 topics (held out)",
+        "lang": "ukr_Cyrl",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.umb_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.2424,
+      "ece": 0.2281,
+      "brier": 0.7344,
+      "nll": 1.6551,
+      "ms_per_case": 76.72,
+      "meta": {
+        "note": "SIB-200 umb_Latn, 7 topics (held out)",
+        "lang": "umb_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.urd_Arab": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.0737,
+      "ece": 0.3949,
+      "brier": 1.0248,
+      "nll": 2.8261,
+      "ms_per_case": 98.8,
+      "meta": {
+        "note": "SIB-200 urd_Arab, 7 topics (held out)",
+        "lang": "urd_Arab",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.uzn_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.1825,
+      "ece": 0.304,
+      "brier": 0.7605,
+      "nll": 1.7277,
+      "ms_per_case": 81.7,
+      "meta": {
+        "note": "SIB-200 uzn_Latn, 7 topics (held out)",
+        "lang": "uzn_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.vec_Latn": {
+      "n": 24,
+      "accuracy": 0.75,
+      "macro_f1": 0.6385,
+      "ece": 0.24,
+      "brier": 0.4584,
+      "nll": 1.0044,
+      "ms_per_case": 69.05,
+      "meta": {
+        "note": "SIB-200 vec_Latn, 7 topics (held out)",
+        "lang": "vec_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.vie_Latn": {
+      "n": 24,
+      "accuracy": 0.375,
+      "macro_f1": 0.1508,
+      "ece": 0.3032,
+      "brier": 0.6691,
+      "nll": 1.5156,
+      "ms_per_case": 73.26,
+      "meta": {
+        "note": "SIB-200 vie_Latn, 7 topics (held out)",
+        "lang": "vie_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.war_Latn": {
+      "n": 24,
+      "accuracy": 0.7083,
+      "macro_f1": 0.5618,
+      "ece": 0.1809,
+      "brier": 0.4636,
+      "nll": 1.0955,
+      "ms_per_case": 80.28,
+      "meta": {
+        "note": "SIB-200 war_Latn, 7 topics (held out)",
+        "lang": "war_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.wol_Latn": {
+      "n": 24,
+      "accuracy": 0.5,
+      "macro_f1": 0.4002,
+      "ece": 0.1975,
+      "brier": 0.6378,
+      "nll": 1.357,
+      "ms_per_case": 72.6,
+      "meta": {
+        "note": "SIB-200 wol_Latn, 7 topics (held out)",
+        "lang": "wol_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.xho_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.3024,
+      "ece": 0.1545,
+      "brier": 0.7,
+      "nll": 1.6878,
+      "ms_per_case": 78.72,
+      "meta": {
+        "note": "SIB-200 xho_Latn, 7 topics (held out)",
+        "lang": "xho_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.ydd_Hebr": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.2571,
+      "ece": 0.195,
+      "brier": 0.7621,
+      "nll": 1.8568,
+      "ms_per_case": 120.43,
+      "meta": {
+        "note": "SIB-200 ydd_Hebr, 7 topics (held out)",
+        "lang": "ydd_Hebr",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.yor_Latn": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.2976,
+      "ece": 0.2575,
+      "brier": 0.7617,
+      "nll": 1.7083,
+      "ms_per_case": 73.58,
+      "meta": {
+        "note": "SIB-200 yor_Latn, 7 topics (held out)",
+        "lang": "yor_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.yue_Hant": {
+      "n": 24,
+      "accuracy": 0.25,
+      "macro_f1": 0.2095,
+      "ece": 0.4234,
+      "brier": 1.0185,
+      "nll": 2.0897,
+      "ms_per_case": 65.17,
+      "meta": {
+        "note": "SIB-200 yue_Hant, 7 topics (held out)",
+        "lang": "yue_Hant",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.zho_Hans": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.1994,
+      "ece": 0.3655,
+      "brier": 0.9242,
+      "nll": 2.2329,
+      "ms_per_case": 66.59,
+      "meta": {
+        "note": "SIB-200 zho_Hans, 7 topics (held out)",
+        "lang": "zho_Hans",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.zho_Hant": {
+      "n": 24,
+      "accuracy": 0.3333,
+      "macro_f1": 0.185,
+      "ece": 0.3619,
+      "brier": 0.9077,
+      "nll": 2.0823,
+      "ms_per_case": 61.78,
+      "meta": {
+        "note": "SIB-200 zho_Hant, 7 topics (held out)",
+        "lang": "zho_Hant",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.zsm_Latn": {
+      "n": 24,
+      "accuracy": 0.4167,
+      "macro_f1": 0.273,
+      "ece": 0.3333,
+      "brier": 0.6873,
+      "nll": 1.6828,
+      "ms_per_case": 72.54,
+      "meta": {
+        "note": "SIB-200 zsm_Latn, 7 topics (held out)",
+        "lang": "zsm_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    },
+    "sib200.zul_Latn": {
+      "n": 24,
+      "accuracy": 0.4583,
+      "macro_f1": 0.2381,
+      "ece": 0.3732,
+      "brier": 0.7772,
+      "nll": 1.7967,
+      "ms_per_case": 78.51,
+      "meta": {
+        "note": "SIB-200 zul_Latn, 7 topics (held out)",
+        "lang": "zul_Latn",
+        "laya_in_training": false
+      },
+      "order_flip_rate": 0.0
+    }
+  },
+  "determinism_repeat_identical": 1.0,
+  "determinism_n": 6195
+}

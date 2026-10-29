@@ -16,6 +16,9 @@ every question; Nirnay reads it once — 10 questions take 0.23 s instead of 1.4
 
 * **Weights:** [huggingface.co/nandukmelath/nirnay](https://huggingface.co/nandukmelath/nirnay) (v3.1 default, v2 in `v2/`, v1 in `fast/`)
 * **Try it free in Colab (CPU runtime):** [notebooks/nirnay_demo.ipynb](https://colab.research.google.com/github/nandukmelath/nirnay/blob/main/notebooks/nirnay_demo.ipynb)
+* **100 languages:** [huggingface.co/nandukmelath/nirnay-multilingual](https://huggingface.co/nandukmelath/nirnay-multilingual) —
+  MASSIVE intent detection in 51 languages 0.386 vs Laya multilingual's 0.217 (higher in 49 of 51 languages);
+  SIB-200 topics in 205 languages 0.670 vs 0.632. Same API; write the question in English, the text in any language.
 
 ## New in v3.1 (default)
 
@@ -171,7 +174,8 @@ the workstation setup. Environment variables of each script are documented at it
 
 ## Limitations
 
-* English only (bge-*-en backbones); a multilingual Nirnay is in training.
+* English only (bge-*-en backbones). For other languages use
+  [nirnay-multilingual](https://huggingface.co/nandukmelath/nirnay-multilingual).
 * Wording still matters for concepts it rarely trained on. v3.1 learned urgency from a dozen phrasings: on a small
   check "Does the customer express urgency?" gets 6 of 8 tickets right (v2: 4 of 8). Probabilities rank texts well
   even when a phrasing moves the yes/no threshold; fix the threshold with a few labelled examples via `learn()`.

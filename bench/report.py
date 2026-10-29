@@ -27,10 +27,11 @@ MODELS = {   # key -> (column label, result-file tag, description)
     "nirnay-v3": ("Nirnay v3", "v3", "bge-base-en-v1.5, deep fusion; 324k questions: v2's mix plus request routing, short-message "
                                      "spam, request safety (NVIDIA Aegis 2.0), urgency and more phrasings of every question "
                                      "template; warm-started from v2 for 1.25 more epochs on both CPU sockets."),
-    "nirnay-multilingual": ("Nirnay multilingual", "ml", "multilingual-e5-base (100 languages), deep fusion; ~380k questions: "
-                                                         "v3's mix plus MTOP intents (6 languages), PAWS-X, NLI in 26 "
+    "nirnay-multilingual": ("Nirnay multilingual", "ml", "multilingual-e5-base (100 languages), deep fusion; 385k questions: "
+                                                         "v3.1's mix plus MTOP intents (6 languages), PAWS-X, NLI in 26 "
                                                          "languages, toxicity in 14, language identification, multilingual "
-                                                         "reviews and tweets; 1.2 epochs."),
+                                                         "reviews and tweets; ~1.5 epochs on both CPU sockets (a partial "
+                                                         "run, then 1.0 epoch warm-started from it)."),
     "nirnay-v31": ("Nirnay v3.1", "v31", "v3 with content-only safety wording (v3's AI-assistant / policy phrasings made it "
                                         "call harmful prompts jailbreaks); same recipe: warm-started from v2, 1.25 epochs."),
     "nirnay-v31-gpu": ("Nirnay v3.1-GPU", "v31gpu", "v3.1's data and architecture, warm-started from v2 for 2 epochs on a "

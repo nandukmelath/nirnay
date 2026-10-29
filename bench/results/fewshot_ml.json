@@ -1,0 +1,79 @@
+{
+  "model": "nirnay-me5b-deep2",
+  "banking77": {
+    "0": {
+      "accuracy": 0.4775,
+      "learn_seconds": 0.0
+    },
+    "2": {
+      "accuracy": 0.54,
+      "learn_seconds": 37.13,
+      "examples": 154,
+      "lam": 0.25,
+      "tau": 0.02,
+      "loo_nll": 2.4809
+    },
+    "4": {
+      "accuracy": 0.605,
+      "learn_seconds": 67.09,
+      "examples": 308,
+      "lam": 0.5,
+      "tau": 0.02,
+      "loo_nll": 2.054
+    },
+    "8": {
+      "accuracy": 0.7675,
+      "learn_seconds": 153.7,
+      "examples": 616,
+      "lam": 1.0,
+      "tau": 0.02,
+      "loo_nll": 1.5486
+    },
+    "16": {
+      "accuracy": 0.745,
+      "learn_seconds": 294.21,
+      "examples": 1232,
+      "lam": 2.0,
+      "tau": 0.05,
+      "loo_nll": 1.2289
+    }
+  },
+  "emotion": {
+    "0": {
+      "accuracy": 0.485,
+      "learn_seconds": 0.0
+    },
+    "2": {
+      "accuracy": 0.485,
+      "learn_seconds": 0.73,
+      "examples": 12,
+      "lam": 0.0,
+      "tau": 0.02,
+      "loo_nll": 1.9671
+    },
+    "4": {
+      "accuracy": 0.485,
+      "learn_seconds": 1.47,
+      "examples": 24,
+      "lam": 0.0,
+      "tau": 0.02,
+      "loo_nll": 1.473
+    },
+    "8": {
+      "accuracy": 0.485,
+      "learn_seconds": 3.01,
+      "examples": 48,
+      "lam": 0.0,
+      "tau": 0.02,
+      "loo_nll": 1.6399
+    },
+    "16": {
+      "accuracy": 0.485,
+      "learn_seconds": 5.93,
+      "examples": 96,
+      "lam": 0.0,
+      "tau": 0.02,
+      "loo_nll": 1.7814
+    }
+  }
+}

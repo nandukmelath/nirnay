@@ -16,11 +16,15 @@ if exist D:\Nirnay\train\ML_FROM_KAGGLE (
 )
 
 echo %date% %time% stage 1/7 build records_ml >> %ST%
+rem online for the build: a caller's HF_HUB_OFFLINE=1 (v31.cmd sets it for training) made five sources fail on 10-28
+set HF_HUB_OFFLINE=
 set NIRNAY_RECORDS_OUT=D:\Nirnay\train\data\records_ml.jsonl
 set NIRNAY_SRC_SCALE=ag_news=2.86,support_tickets=2.78,enron=3.14,phishing=2,msmarco=2.86,mtop=1.5
 set NIRNAY_SKIP_SOURCES=
 start "" /b /wait /affinity FFFF %PY% -u train\build_data.py > train\build_data_ml.log 2>&1
 findstr /b /c:"records:" train\build_data_ml.log >nul || goto fail1
+rem a failed source must stop the run, not shrink the training set silently
+findstr /c:"   FAIL " train\build_data_ml.log >nul && goto fail1
 set NIRNAY_RECORDS_OUT=
 set NIRNAY_SRC_SCALE=
 
@@ -43,14 +47,14 @@ findstr /c:"done ->" train\precompute_me5b.log >nul || goto fail2
 set NIRNAY_SHARD=
 timeout /t 30 /nobreak >nul
 
-echo %date% %time% stage 3/7 train deep fusion (DDP, 1.2 epochs) >> %ST%
+echo %date% %time% stage 3/7 train deep fusion (DDP, 1.0 epoch, warm start from the 10-28 partial run) >> %ST%
 set HF_HUB_OFFLINE=1
-set NIRNAY_RUN=me5b-deep
-set NIRNAY_INIT=
+set NIRNAY_RUN=me5b-deep2
+set NIRNAY_INIT=D:\Nirnay\train\runs\me5b-partial\model_best.pt
 set NIRNAY_FUSION=deep
 set NIRNAY_SPLIT=8
 set NIRNAY_BATCH=64
-set NIRNAY_EPOCHS=1.2
+set NIRNAY_EPOCHS=1.0
 set NIRNAY_LR=2e-4
 set NIRNAY_ADAPTER_LR=5e-5
 set NIRNAY_WARMUP=300
@@ -80,7 +84,7 @@ echo %date% %time% stage 5/7 evaluate: MASSIVE (51 languages) + SIB-200 (205 lan
 set BENCH_SUITES_FILE=D:\Nirnay\bench\data\suites_multi.jsonl
 set BENCH_OUT_TAG=multi
 start "" /b /wait /affinity FFFF0000 %PY% -u bench\eval_suites.py nirnay:models\nirnay-multilingual > bench\results\suites_multi_nirnay-multilingual.log 2>&1
-start "" /b /wait /affinity FFFF0000 %PY% -u bench\eval_suites.py nirnay:models\nirnay-v3 > bench\results\suites_multi_nirnay-v3.log 2>&1
+start "" /b /wait /affinity FFFF0000 %PY% -u bench\eval_suites.py nirnay:models\nirnay-v31 > bench\results\suites_multi_nirnay-v31.log 2>&1
 set BENCH_SUITES_FILE=
 set BENCH_OUT_TAG=
 
